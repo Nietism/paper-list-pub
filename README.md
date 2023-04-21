@@ -32,6 +32,10 @@
 
     + augmented prompting strategies (CoT prompting, instruction following without exemplars/demonstrations and so on)
 
++ **Toolformer: Language Models Can Teach Themselves to Use Tools.**
+
+    *Timo Schick, Jane Dwivedi-Yu, Roberto Dessì, Roberta Raileanu, Maria Lomeli, Luke Zettlemoyer, Nicola Cancedda, Thomas Scialom.* **arxiv, 2023.** [[pdf](./documents/2023.Toolformer.pdf)] [[arxiv](https://arxiv.org/abs/2302.04761)]
+
 + **Tool Learning with Foundation Models.**
 
     *Yujia Qin, Shengding Hu, Yankai Lin, Weize Chen, Ning Ding, Ganqu Cui, Zheni Zeng, Yufei Huang, Chaojun Xiao, Chi Han, Yi Ren Fung, Yusheng Su, Huadong Wang, Cheng Qian, Runchu Tian, Kunlun Zhu, Shihao Liang, Xingyu Shen, Bokai Xu, Zhen Zhang, Yining Ye, Bowen Li, Ziwei Tang, Jing Yi, Yuzhang Zhu, Zhenning Dai, Lan Yan, Xin Cong, Yaxi Lu, Weilin Zhao, Yuxiang Huang, Junxi Yan, Xu Han, Xian Sun, Dahai Li, Jason Phang, Cheng Yang, Tongshuang Wu, Heng Ji, Zhiyuan Liu, Maosong Sun.* **arxiv, 2023.** [[pdf](./documents/2023.Tool%20Learning%20with%20Foundation%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2304.08354)] [[project](https://github.com/OpenBMB/BMTools)]
@@ -69,7 +73,7 @@
     It provides a unified view of three representative PEFT methods (adapter, prefix tuning and LoRA). Authors also proposed three variants: Parallel Adapter, Multi-head Parallel Adapter and Scaled Parallel Adapter and conducted further experiments and discussions. Insightful.
 
 
-### Model Architecture/Training and Tuning/Decoding 🚋
+### Model Architecture / Training and Tuning / Decoding 🚋
 
 + **Attention is All You Need.**
 
@@ -92,7 +96,7 @@
     *Ximing Lu, Sean Welleck, Peter West, Liwei Jiang, Jungo Kasai, Daniel Khashabi, Ronan Le Bras, Lianhui Qin, Youngjae Yu, Rowan Zellers, Noah A. Smith, Yejin Choi.* **NAACL, 2022.** [[pdf](./documents/2022.NeuroLogic%20Aesque%20Decoding.pdf)] [[acl](https://aclanthology.org/2022.naacl-main.57/)] [[arxiv](https://arxiv.org/abs/2112.08726)]
 
 
-### Information Extraction/Script Learning 🛴
+### Information Extraction / Script Learning 🛴
 
 + **What Happens Next? Event Prediction Using a Compositional Neural Network Model.**
 
@@ -160,7 +164,7 @@
     Flan-T5 (11B) as backbone.
 
 
-### Event Type/Schema Induction 🚲
+### Event Type Induction / Event Schema Induction 🚲
 
 + **Corpus-based Open-Domain Event Type Induction.**
 
@@ -190,7 +194,7 @@
     *Jing Ma, Mengting Wan, Longqi Yang, Jundong Li, Brent Hecht, Jaime Teevan.* **KDD, 2022.** [[pdf](./documents/2022.Learning%20Causal%20Effects%20on%20Hypergraphs.pdf)] [[arxiv](https://arxiv.org/abs/2207.04049)]
 
 
-### Video/Audio/Multimodal 🎞
+### Video / Audio / Multimodal 🎞
 
 + **Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models.**
 
@@ -212,7 +216,7 @@
     *Wen-Hui Sah.* **Pacific Asia Conference on Language, Information and Computaion (PACLIC). 2013.** [[pdf](./documents/2013.The%20Development%20of%20Coherence%20in%20Narratives-Causal%20Relations.pdf)] [[acl](https://aclanthology.org/Y13-1015/)]
 
 
-## Courses and Tutorials 🍔
+## Courses and Tutorials / Tools 🍔
 
 + **Natural Language Processing with Transformers.**
 
@@ -236,3 +240,8 @@
 
     *Huawei Shen (ICT, CAS).* **2021.** [[slides](./documents/Huawei-Shen-Graph-convolutional-neura-networks.pdf)] [[video](https://www.bilibili.com/video/BV1dT4y1o7VF/)]
 
++ **YEDDA: A Lightweight Collaborative Text Span Annotation Tool.**
+
+    *Jie Yang, Yue Zhang, Linwei Li, Xingxuan Li.* **ACL 2018, System Demonstrations.** [[pdf](./documents/2018.YEDDA.pdf)] [[acl](https://aclanthology.org/P18-4006/)] [[arxiv](https://arxiv.org/abs/1711.03759)] [[project](https://github.com/jiesutd/YEDDA)]
+
+    YEDDA (SUTDAnnotator) is developed for annotating chunk/entity/event on text. It supports shortcut annoatation. The tool is developed based on tkinter package in Python.
