@@ -10,7 +10,23 @@
 
     *Jason Wei, Maarten Bosma, Vincent Y. Zhao, Kelvin Guu, Adams Wei Yu, Brian Lester, Nan Du, Andrew M. Dai, Quoc V. Le.* **ICLR, 2022.** [[pdf](./documents/2022.Finetuned%20Language%20Models%20Are%20Zero-Shot%20Learners.pdf)] [[arxiv](https://arxiv.org/abs/2109.01652)]
 
-    Google proposed instruction tuning and conducted experiments on many tasks.
+    Proposed instruction tuning and conducted experiments on many tasks.
+
++ **Learning to summarize from human feedback.**
+
+    *Nisan Stiennon, Long Ouyang, Jeff Wu, Daniel M. Ziegler, Ryan Lowe, Chelsea Voss, Alec Radford, Dario Amodei, Paul Christiano.* **NeurIPS, 2020.** [[pdf](./documents/2020.Learning%20to%20summarize%20from%20human%20feedback.pdf)] [[arxiv](https://arxiv.org/abs/2009.01325)] [[project](https://github.com/openai/summarize-from-feedback)] [samples](https://openaipublic.blob.core.windows.net/summarize-from-feedback/website/index.html#/)]
+
+    Summarize with RLHF.
+
++ **Training language models to follow instructions with human feedback.**
+
+    *Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul Christiano, Jan Leike, Ryan Lowe.* **NeurIPS, 2022.** [[pdf](./documents/2022.InstructGPT.pdf)] [[arxiv](https://arxiv.org/abs/2203.02155)] [[blog](https://openai.com/research/instruction-following)]
+
++ **Scaling Laws for Reward Model Overoptimization.**
+
+    *Leo Gao, John Schulman, Jacob Hilton.* **arxiv, 2022.** [[pdf](./documents/2022.Scaling%20Laws%20for%20Reward%20Model%20Overoptimization.pdf)] [[arxiv](https://arxiv.org/abs/2210.107605)]
+
+    About over-optimization in RLHF.
 
 + **From Zero to Hero: Examining the Power of Symbolic Tasks in Instruction Tuning.**
 
@@ -26,7 +42,7 @@
 
     *Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, Ed H. Chi, Tatsunori Hashimoto, Oriol Vinyals, Percy Liang, Jeff Dean, William Fedus.* **Transactions on Machine Learning Research (TMLR), 2022.** [[pdf](./documents/2022.Emergent%20Abilities%20of%20Large%20Language%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2206.07682)]
 
-    + definition of emergent abilities of LLMs: *an ability is emergent if it is not present in smaller models but is present in larger models.*
+    + definition of emergent abilities of LLMs: *An ability is emergent if it is not present in smaller models but is present in larger models.*
 
     + few-shot prompting (in-context learning ability)
 
