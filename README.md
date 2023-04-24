@@ -14,7 +14,7 @@
 
 + **Learning to summarize from human feedback.**
 
-    *Nisan Stiennon, Long Ouyang, Jeff Wu, Daniel M. Ziegler, Ryan Lowe, Chelsea Voss, Alec Radford, Dario Amodei, Paul Christiano.* **NeurIPS, 2020.** [[pdf](./documents/2020.Learning%20to%20summarize%20from%20human%20feedback.pdf)] [[arxiv](https://arxiv.org/abs/2009.01325)] [[project](https://github.com/openai/summarize-from-feedback)] [samples](https://openaipublic.blob.core.windows.net/summarize-from-feedback/website/index.html#/)]
+    *Nisan Stiennon, Long Ouyang, Jeff Wu, Daniel M. Ziegler, Ryan Lowe, Chelsea Voss, Alec Radford, Dario Amodei, Paul Christiano.* **NeurIPS, 2020.** [[pdf](./documents/2020.Learning%20to%20summarize%20from%20human%20feedback.pdf)] [[arxiv](https://arxiv.org/abs/2009.01325)] [[project](https://github.com/openai/summarize-from-feedback)] [[samples](https://openaipublic.blob.core.windows.net/summarize-from-feedback/website/index.html#/)]
 
     Summarize with RLHF.
 
