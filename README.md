@@ -93,7 +93,7 @@
 
 + **Towards a Unified View of Parameter-Efficient Transfer Learning.**
 
-    *Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-Kirkpatrick, Graham Neubig.* **ICLR, 2022.** [[pdf](./documents/2021.Towards%20a%20Unified%20View%20of%20Parameter-Efficient%20Transfer%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2110.04366)]
+    *Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-Kirkpatrick, Graham Neubig.* **ICLR, 2022.** [[pdf](./documents/2021.Towards%20a%20Unified%20View%20of%20Parameter-Efficient%20Transfer%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2110.04366)] [[project](https://github.com/jxhe/unify-parameter-efficient-tuning)]
 
     It provides a unified view of three representative PEFT methods (adapter, prefix tuning and LoRA). Authors also proposed three variants: Parallel Adapter, Multi-head Parallel Adapter and Scaled Parallel Adapter and conducted further experiments and discussions. Insightful.
 
