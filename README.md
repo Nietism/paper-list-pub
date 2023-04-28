@@ -58,16 +58,25 @@
 
 + **GLM-130B: An Open Bilingual Pre-trained Model.**
 
-    *Aohan Zeng, Xiao Liu, Zhengxiao Du, Zihan Wang, Hanyu Lai, Ming Ding, Zhuoyi Yang, Yifan Xu, Wendi Zheng, Xiao Xia, Weng Lam Tam, Zixuan Ma, Yufei Xue, Jidong Zhai, Wenguang Chen, Peng Zhang, Yuxiao Dong, Jie Tang.* **ICLR, 2023.** [[pdf](./documents/2022.GLM-130B.pdf)] [[arxiv](https://arxiv.org/abs/2210.02414)]
+    *Aohan Zeng, Xiao Liu, Zhengxiao Du, Zihan Wang, Hanyu Lai, Ming Ding, Zhuoyi Yang, Yifan Xu, Wendi Zheng, Xiao Xia, Weng Lam Tam, Zixuan Ma, Yufei Xue, Jidong Zhai, Wenguang Chen, Peng Zhang, Yuxiao Dong, Jie Tang.* **ICLR, 2023.** [[pdf](./documents/2022.GLM-130B.pdf)] [[arxiv](https://arxiv.org/abs/2210.02414)] [[project](https://github.com/THUDM/GLM-130B)]
 
-    A bilingual (English and Chinese) pre-trained language model with 130 billion parameters from Tsinghua and Zhipu.
+    A bilingual (English and Chinese) pre-trained language model with 130 billion parameters from Tsinghua and Zhipu. They released ChatGLM-6B in March 2023. ChatGLM-6B is an open bilingual language model based on General Language Model (GLM) framework, with 6.2 billion parameters. Related information about ChatGLM: [[blog](https://chatglm.cn/blog)] [[project](https://github.com/THUDM/ChatGLM-6B)]
 
 + **LLaMA: Open and Efficient Foundation Language Models.**
 
-    *Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, Guillaume Lample.* **arxiv, 2023.** [[pdf](./documents/2023.LLaMA.pdf)] [[arxiv](https://arxiv.org/abs/2302.13971)]
+    *Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, Guillaume Lample.* **arxiv, 2023.** [[pdf](./documents/2023.LLaMA.pdf)] [[arxiv](https://arxiv.org/abs/2302.13971)] [[project](https://github.com/facebookresearch/llama)]
 
     A series of LLMs (7B, 13B, 33B, 65B) from Meta AI.
 
++ **Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond.**
+
+    *Jingfeng Yang, Hongye Jin, Ruixiang Tang, Xiaotian Han, Qizhang Feng, Haoming Jiang, Bing Yin, Xia Hu.* **arxiv, 2023.** [[pdf](./documents/2023.Harnessing%20the%20Power%20of%20LLMs%20in%20Practice-A%20Survey%20on%20ChatGPT%20and%20Beyond.pdf)] [[arxiv](https://arxiv.org/abs/2210.02414)] [[project](https://github.com/Mooler0410/LLMsPracticalGuide)]
+
+    Authors also provide a curated list of practical guide resources for LLMs. It's an evolutionary tree of modern LLMs.
+    <img src="./notes/pics/llm-tree.png" alt="alt text" title="Optional title" style="zoom: 70%;" />
+
+    Moreover, they build a decision flow for choosing LLMs or fine-tuned models for user's NLP applications. The decision flow helps users assess whether their downstream NLP applications at hand meet specific conditions and, based on that evaluation, determine whether LLMs or fine-tuned models are the most suitable choice for their applications.
+    <img src="./notes/pics/llm-decision-flow.png" alt="alt text" title="Optional title" style="zoom: 80%;" />
 
 ### Parameter-Efficient Fine-Tuning 🛩
 
