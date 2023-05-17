@@ -342,7 +342,7 @@ MOSS的对话数据结构比较清晰：
     "category": "honest"
 }
 ```
-OpenAI提供了[ChatML格式](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)。
+OpenAI提供了[ChatML格式](https://github.com/openai/openai-python/blob/main/chatml.md)。
 
 
 ### 基于人类反馈的强化学习（RLHF）
