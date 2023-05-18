@@ -125,6 +125,10 @@
 
     四种尺寸：7B, 13B, 33B, 65B. 训练数据全部来自公开数据集。
 
++ **PaLM 2 Technical Report.**
+
+    *Rohan Anil, Andrew M. Dai, Orhan Firat, Melvin Johnson and many authors.* **arxiv, 2023.** [[pdf](./documents/2023.PaLM%202%20Technical%20Report.pdf)] [[arxiv](https://arxiv.org/abs/2305.10403)]
+
 + **Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond.**
 
     *Jingfeng Yang, Hongye Jin, Ruixiang Tang, Xiaotian Han, Qizhang Feng, Haoming Jiang, Bing Yin, Xia Hu.* **arxiv, 2023.** [[pdf](./documents/2023.Harnessing%20the%20Power%20of%20LLMs%20in%20Practice-A%20Survey%20on%20ChatGPT%20and%20Beyond.pdf)] [[arxiv](https://arxiv.org/abs/2210.02414)] [[project](https://github.com/Mooler0410/LLMsPracticalGuide)]
@@ -159,7 +163,7 @@
 
     也有第三方泄露发布在huggingface上的版本：https://huggingface.co/decapoda-research
 
-+ **ChatGLM.** [[blog](https://chatglm.cn/blog)] [[github](https://github.com/THUDM/ChatGLM-6B)]
++ **ChatGLM-6B.** [[blog](https://chatglm.cn/blog)] [[github](https://github.com/THUDM/ChatGLM-6B)]
 
     清华/智谱开源的中文大模型，及微调训练工具库。
 
@@ -183,7 +187,7 @@
 
 ### 相关项目
 
-+ **🦙🌲🤏 Alpaca-LoRA.** [[github](https://github.com/tloen/alpaca-lora)]
++ **Alpaca-LoRA.** [[github](https://github.com/tloen/alpaca-lora)]
 
     比较早的使用LoRA微调Alpaca的项目。
 
@@ -193,13 +197,13 @@
 
 + **LMFlow.** [[github](https://github.com/OptimalScale/LMFlow)]
 
-    一个用于微调大型机器学习模型的可扩展、方便和高效的工具箱，支持🤗huggingface中所有的decoder-only models，包括LLaMA、GPT2、GPT-Neo和Galactica等。
+    一个用于微调大型机器学习模型的可扩展、方便和高效的工具箱，支持huggingface中所有的decoder-only models，包括LLaMA、GPT2、GPT-Neo和Galactica等。
 
 + **FastChat.** [[github](https://github.com/lm-sys/FastChat)]
 
     FastChat is an open platform for training, serving, and evaluating large language model based chatbots.
 
-+ **🤗 PEFT: State-of-the-art Parameter-Efficient Fine-Tuning.** [[github](https://github.com/huggingface/peft)]
++ **PEFT: State-of-the-art Parameter-Efficient Fine-Tuning.** [[github](https://github.com/huggingface/peft)]
 
     huggingface的参数高效微调工具包，现在已经支持LoRA、Prefix Tuning、P-Tuning、Prompt Tuning和AdaLoRA这五种方法。
 
@@ -221,6 +225,13 @@
     *Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-Kirkpatrick, Graham Neubig.* **ICLR, 2022.** [[pdf](./documents/2021.Towards%20a%20Unified%20View%20of%20Parameter-Efficient%20Transfer%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2110.04366)] [[project](https://github.com/jxhe/unify-parameter-efficient-tuning)]
 
     将Adapter、Prefix Tuning和LoRA三种方法统一到同一视角下进行讨论，并提出了几种变体方法。
+
+相关项目中这两个库封装了一些常用的参数高效微调方法，peft库的实现已经比较全面，并且针对RLHF阶段做了一些支持。
+
++ **PEFT: State-of-the-art Parameter-Efficient Fine-Tuning.** [[github](https://github.com/huggingface/peft)]
+
++ **LLM-Adapters.** [[arxiv](https://arxiv.org/abs/2304.01933)] [[github](https://github.com/AGI-Edgerunners/LLM-Adapters)]
+
 
 ### 指令微调（instruction tuning）
 
@@ -402,11 +413,15 @@ ColossalAI实现的是第二种，DeepSpeed-Chat实现的是第一种。
 
 (TODO)
 
-+ MiniGPT-4
++ **MiniGPT-4.**
 
-+ LLaVa
++ **LLaVa.**
 
-+ InstructBLIP
++ **InstructBLIP.**
+
++ **VisualGLM-6B.** [[github](https://github.com/THUDM/VisualGLM-6B)]
+
+    支持图像、中文和英文的多模态对话语言模型，语言模型基于 ChatGLM-6B，具有 62 亿参数；图像部分通过训练 BLIP2-Qformer 构建起视觉模型与语言模型的桥梁，整体模型共78亿参数。
 
 + ...
 
