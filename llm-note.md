@@ -361,6 +361,8 @@ OpenAI提供了[ChatML格式](https://github.com/openai/openai-python/blob/main/
 
 目前开源的实现了RLHF的部分工作有：
 
++ **PaLM-rlhf-pytorch.** [[github](https://github.com/lucidrains/PaLM-rlhf-pytorch)]
+
 + **ColossalChat.** [[github](https://github.com/hpcaitech/ColossalAI/tree/main/applications/Chat)]
 
 + **DeepSpeed-Chat.** [[github](https://github.com/microsoft/DeepSpeedExamples/tree/master/applications/DeepSpeed-Chat)]
