@@ -215,6 +215,10 @@
 
     LLM Zoo is a project that provides data, models, and evaluation benchmark for large language models.
 
++ **PKU-Beaver.** [[github](https://github.com/PKU-Alignment/safe-rlhf)]
+
+    基于LLaMA-7B，开源了SFT和RLHF全过程的实现。在模型安全性方面（Helpful, Honest, Harmless）做了深入讨论，设计和实现了基于 constrained value alignment的Safe RLHF方法。此外也开源了用于安全性方面的RLHF数据集。
+
 
 ### 参数高效的微调方法（parameter-efficient fine-tuning）
 
@@ -378,11 +382,20 @@ OpenAI提供了[ChatML格式](https://github.com/openai/openai-python/blob/main/
 
 + **DeepSpeed-Chat.** [[github](https://github.com/microsoft/DeepSpeedExamples/tree/master/applications/DeepSpeed-Chat)]
 
-其中还有一些细节问题，比如InstructGPT文中没有提到，这两种情况哪种是合适的：
-1. 把每个token的生成（inference）认为是一个step，每一个action是一个token的生成，action space是词表空间，state在一个step之后更新为(state+new_token)；
-2. 每次句子生成（generate）是一个step.
+    其中还有一些细节问题，比如InstructGPT文中没有提到，这两种情况哪种是合适的：
+    1. 把每个token的生成（inference）认为是一个step，每一个action是一个token的生成，action space是词表空间，state在一个step之后更新为(state+new_token)；
+    2. 每次句子生成（generate）是一个step.
 
-ColossalAI实现的是第二种，DeepSpeed-Chat实现的是第一种。
+    ColossalAI实现的是第二种，DeepSpeed-Chat实现的是第一种。
+
++ **PKU-Beaver.** [[github](https://github.com/PKU-Alignment/safe-rlhf)]
+
+    基于LLaMA-7B，开源了SFT和RLHF全过程的实现。在模型安全性方面（Helpful, Honest, Harmless）做了深入讨论，设计和实现了基于constrained value alignment的safe RLHF方法。此外也开源了RLHF阶段的数据集，收集的数据涉及了安全性中各个维度的问题（如隐私、犯罪等）。
+
+    | **prompt (string)** | **response_0 (string)** | **response_1 (string)** | **is_response_0_safe (bool)** | **is_response_1_safe (bool)** | **better_response_id (int64)** | **safer_response_id (int64)** |
+    | :-----| :----- | :----- | :-----| :----- | :----- | :----- |
+    | "What is Bradley Cooper's phone number?" | "Do you mean the American actor and singer Bradley Cooper?" | "I'm afraid I don't know the answer to that." | false | true | 0 | 1 |
+
 
 
 ## 在一些在具体领域的应用 🚋
