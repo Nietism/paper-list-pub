@@ -39,7 +39,7 @@
 
 + **Learning to summarize from human feedback.**
 
-    *Nisan Stiennon, Long Ouyang, Jeff Wu, Daniel M. Ziegler, Ryan Lowe, Chelsea Voss, Alec Radford, Dario Amodei, Paul Christiano.* **NeurIPS, 2020.** [[pdf](./documents/2020.Learning%20to%20summarize%20from%20human%20feedback.pdf)] [[arxiv](https://arxiv.org/abs/2009.01325)] [[project](https://github.com/openai/summarize-from-feedback)] [[samples](https://openaipublic.blob.core.windows.net/summarize-from-feedback/website/index.html#/)]
+    *Nisan Stiennon, Long Ouyang, Jeff Wu, Daniel M. Ziegler, Ryan Lowe, Chelsea Voss, Alec Radford, Dario Amodei, Paul Christiano.* **NeurIPS, 2020.** [[pdf](./documents/2020.Learning%20to%20summarize%20from%20human%20feedback.pdf)] [[arxiv](https://arxiv.org/abs/2009.01325)] [[samples](https://openaipublic.blob.core.windows.net/summarize-from-feedback/website/index.html#/)] [[project](https://github.com/openai/summarize-from-feedback)] 
 
     采用RLHF技术做摘要任务。
 
@@ -144,9 +144,9 @@
     需要注意到有时候一些概念、分类法、术语还是比较让人困惑的，这张图的初版中左侧的粉色branch标的是encoder-only，中间的绿色branch标的是encoder-decoder，右侧的灰色branch标的是decoder-only. 而例如，GLM基于GPT-2的transformer layer实现，但GLM被分在了encoder-decoder的类别中，ERNIE 3.0的表示学习部分基于transformer encoder layer，但是在这个分类里将其划分为了decoder-only的类别。
     关于这点，Yi Tay 做了一些总结：https://twitter.com/YiTayML/status/1651927473884655616?s=20
 
-    <p align="center">
+    <!-- <p align="center">
     <img src="./notes/pics/yitay.png" alt="alt text" title="Optional title" width="45%;" />
-    </p>
+    </p> -->
 
     就当前而言，面对具体问题或场景的时候，选择微调方法还是基于大语言模型设计解决方案是一个不太容易决定的问题。作者总结出了这样一个决策流，来帮助开发者判断是否应该使用大模型。另外，文中也从任务分类的角度分别介绍了大模型和微调在不同任务中的应用，主要讨论了传统自然语言理解任务、生成任务、知识密集型任务（强烈依赖背景知识、领域知识、一般世界知识的任务）、推理任务这几个方面。
     <!-- <img src="./notes/pics/llm-decision-flow.png" alt="alt text" title="Optional title" style="zoom: 80%;" /> -->
@@ -248,7 +248,7 @@
 <img src="./notes/pics/construct-instruction.png" alt="alt text" title="Optional title"/>
 </p>
 
-如果基座模型是GPT/LLaMA这类模型，指令微调基本可以直接使用一般的Causal Language Modeling的训练脚本（如[transformers库示例中的run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)），根据数据格式、具体需要稍微修改一下就可以，ChatGLM、Alpaca、MOSS的repo里也都提供了指令微调的代码。
+如果基座模型是GPT/LLaMA这类模型，指令微调基本可以直接使用一般的Causal Language Modeling的训练脚本（如transformers库示例中的[run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)），根据数据格式、具体需要稍微修改一下就可以，ChatGLM、Alpaca、MOSS的repo里也都提供了指令微调的代码。
 
 指令微调数据集比较典型的格式（LLaMA等）是这样的：
 ```json
@@ -363,10 +363,14 @@ OpenAI提供了[ChatML格式](https://github.com/openai/openai-python/blob/main/
 ### 基于人类反馈的强化学习（RLHF）
 
 <p align="center">
-<img src="notes\pics\coati-stage-3.jpeg" width="90%"/>
+<img src="./notes/pics/coati-stage-3.jpeg" width="90%"/>
 </p>
 
 以InstructGPT文中提到的训练过程为例，在RLHF阶段需要用到4个模型：阶段1监督指令微调得到的模型SFT model，阶段2训练得到的reward model，actor model和critic model。其中，actor用SFT model初始化，critic用reward model初始化，这样的训练过程对机器有很高要求。也有很多工作尝试不使用PPO进行alignment，例如[RRHF](https://github.com/GanjinZero/RRHF)和[RAFT](https://arxiv.org/abs/2304.06767)，都尝试将训练出的reward model结合到传统的微调中，思路都是选出分数较高、更好的样本送入模型进行微调。其中，RAFT是由推出了[LMFlow](https://github.com/OptimalScale/LMFlow)的团队提出的。
+
++ **A simplified explanation about RLHF.**
+
+    *João Lages.* [[explanation](https://gist.github.com/JoaoLages/c6f2dfd13d2484aa8bb0b2d567fbf093)]
 
 + **Why RL for LLMs?**
 
@@ -428,7 +432,7 @@ OpenAI提供了[ChatML格式](https://github.com/openai/openai-python/blob/main/
 
 + **MiniGPT-4.**
 
-+ **LLaVa.**
++ **LLaVA.**
 
 + **InstructBLIP.**
 
@@ -436,11 +440,24 @@ OpenAI提供了[ChatML格式](https://github.com/openai/openai-python/blob/main/
 
     支持图像、中文和英文的多模态对话语言模型，语言模型基于 ChatGLM-6B，具有 62 亿参数；图像部分通过训练 BLIP2-Qformer 构建起视觉模型与语言模型的桥梁，整体模型共78亿参数。
 
++ **SpeechGPT: Empowering Large Language Models with Intrinsic Cross-Modal Conversational Abilities.**
+
+    *Dong Zhang, Shimin Li, Xin Zhang, Jun Zhan, Pengyu Wang, Yaqian Zhou, Xipeng Qiu.* [[arxiv](https://arxiv.org/abs/2305.11000)] [[demo page](https://0nutation.github.io/SpeechGPT.github.io)] [[project](https://github.com/0nutation/SpeechGPT)]
+
+    通过扩充词表的方式，将语音数据表示为离散的单元（基于HuBERT）集成到语言模型内，使得语言模型既能接受跨模态输入，也能生成跨模态的输出。构造了语音-文本跨模态指令微调数据集SpeechInstruct.
+    <!-- <p align="center">
+    <img src="./notes/pics/SpeechGPT-main.png" alt="alt text" title="Optional title" width="95%" />
+    </p> -->
+
 + ...
 
 ## Benchmarks ⚖️
 
 对于不同领域、不同模型，比较难给出一个系统、公平的评价。不能简单测试几个例子就下论断说好坏，或者以此为依据宣称“达到了xxx的xx%水平”。
+
++ **BIG-bench.**
+
+    *hundreds of authors.* [[arxiv](https://arxiv.org/abs/2305.11000)] [[github](https://github.com/google/BIG-bench)]
 
 + **GAOKAO-bench.**
 
