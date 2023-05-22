@@ -444,7 +444,7 @@ OpenAI提供了[ChatML格式](https://github.com/openai/openai-python/blob/main/
 
     *Dong Zhang, Shimin Li, Xin Zhang, Jun Zhan, Pengyu Wang, Yaqian Zhou, Xipeng Qiu.* [[arxiv](https://arxiv.org/abs/2305.11000)] [[demo page](https://0nutation.github.io/SpeechGPT.github.io)] [[project](https://github.com/0nutation/SpeechGPT)]
 
-    通过扩充词表的方式，将语音数据表示为离散的单元（基于HuBERT）集成到语言模型内，使得语言模型既能接受跨模态输入，也能生成跨模态的输出。构造了语音-文本跨模态指令微调数据集SpeechInstruct.
+    通过扩充词表的方式，将语音数据表示为离散的单元（基于HuBERT）集成到语言模型内，使得语言模型既能接受跨模态输入，也能生成跨模态的输出。
     <!-- <p align="center">
     <img src="./notes/pics/SpeechGPT-main.png" alt="alt text" title="Optional title" width="95%" />
     </p> -->
