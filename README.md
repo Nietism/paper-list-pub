@@ -6,6 +6,11 @@
 
 ### Large Language Models (LLMs) 🛰
 
+[[link](./llm-note.md)]
+<!-- + **A Survey on In-context Learning.**
+
+    *Qingxiu Dong, Lei Li, Damai Dai, Ce Zheng, Zhiyong Wu, Baobao Chang, Xu Sun, Jingjing Xu, Lei Li, Zhifang Sui.* **arxiv, 2023.** [[pdf](./documents/2023.A%20Survey%20on%20In-context%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2301.00234)] [[project](https://github.com/dqxiu/ICL_PaperList)]
+
 + **Finetuned Language Models Are Zero-Shot Learners.**
 
     *Jason Wei, Maarten Bosma, Vincent Y. Zhao, Kelvin Guu, Adams Wei Yu, Brian Lester, Nan Du, Andrew M. Dai, Quoc V. Le.* **ICLR, 2022.** [[pdf](./documents/2022.Finetuned%20Language%20Models%20Are%20Zero-Shot%20Learners.pdf)] [[arxiv](https://arxiv.org/abs/2109.01652)]
@@ -56,11 +61,19 @@
 
     *Yujia Qin, Shengding Hu, Yankai Lin, Weize Chen, Ning Ding, Ganqu Cui, Zheni Zeng, Yufei Huang, Chaojun Xiao, Chi Han, Yi Ren Fung, Yusheng Su, Huadong Wang, Cheng Qian, Runchu Tian, Kunlun Zhu, Shihao Liang, Xingyu Shen, Bokai Xu, Zhen Zhang, Yining Ye, Bowen Li, Ziwei Tang, Jing Yi, Yuzhang Zhu, Zhenning Dai, Lan Yan, Xin Cong, Yaxi Lu, Weilin Zhao, Yuxiang Huang, Junxi Yan, Xu Han, Xian Sun, Dahai Li, Jason Phang, Cheng Yang, Tongshuang Wu, Heng Ji, Zhiyuan Liu, Maosong Sun.* **arxiv, 2023.** [[pdf](./documents/2023.Tool%20Learning%20with%20Foundation%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2304.08354)] [[project](https://github.com/OpenBMB/BMTools)]
 
++ **GLM: General Language Model Pretraining with Autoregressive Blank Infilling.**
+
+    *Zhengxiao Du, Yujie Qian, Xiao Liu, Ming Ding, Jiezhong Qiu, Zhilin Yang, Jie Tang.* **ACL, 2022.** [[pdf](./documents/2022.GLM.pdf)] [[acl](https://aclanthology.org/2022.acl-long.26/)] [[arxiv](https://arxiv.org/abs/2103.10360)] [[project](https://github.com/THUDM/GLM)]
+
+    GLM is a General Language Model pretrained with an autoregressive blank-filling objective and can be finetuned on various natural language understanding and generation tasks. 
+
+    Seems like the perturbation language modeling in XLNet. (*Zhilin Yang* is the co-first author of XLNet.)
+
 + **GLM-130B: An Open Bilingual Pre-trained Model.**
 
     *Aohan Zeng, Xiao Liu, Zhengxiao Du, Zihan Wang, Hanyu Lai, Ming Ding, Zhuoyi Yang, Yifan Xu, Wendi Zheng, Xiao Xia, Weng Lam Tam, Zixuan Ma, Yufei Xue, Jidong Zhai, Wenguang Chen, Peng Zhang, Yuxiao Dong, Jie Tang.* **ICLR, 2023.** [[pdf](./documents/2022.GLM-130B.pdf)] [[arxiv](https://arxiv.org/abs/2210.02414)] [[project](https://github.com/THUDM/GLM-130B)]
 
-    A bilingual (English and Chinese) pre-trained language model with 130 billion parameters from Tsinghua and Zhipu. They released ChatGLM-6B in March 2023. ChatGLM-6B is an open bilingual language model based on General Language Model (GLM) framework, with 6.2 billion parameters. Related information about ChatGLM: [[blog](https://chatglm.cn/blog)] [[project](https://github.com/THUDM/ChatGLM-6B)]
+    GLM as backbone. A bilingual (English and Chinese) pre-trained language model with 130 billion parameters from Tsinghua and Zhipu. They released ChatGLM-6B in March 2023. ChatGLM-6B is an open bilingual language model based on General Language Model (GLM) framework, with 6.2 billion parameters. Related information about ChatGLM: [[blog](https://chatglm.cn/blog)] [[project](https://github.com/THUDM/ChatGLM-6B)]
 
 + **LLaMA: Open and Efficient Foundation Language Models.**
 
@@ -68,15 +81,21 @@
 
     A series of LLMs (7B, 13B, 33B, 65B) from Meta AI.
 
++ **PaLM 2 Technical Report.**
+
+    *Rohan Anil, Andrew M. Dai, Orhan Firat, Melvin Johnson and many authors.* **arxiv, 2023.** [[pdf](./documents/2023.PaLM%202%20Technical%20Report.pdf)] [[arxiv](https://arxiv.org/abs/2305.10403)]
+
 + **Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond.**
 
     *Jingfeng Yang, Hongye Jin, Ruixiang Tang, Xiaotian Han, Qizhang Feng, Haoming Jiang, Bing Yin, Xia Hu.* **arxiv, 2023.** [[pdf](./documents/2023.Harnessing%20the%20Power%20of%20LLMs%20in%20Practice-A%20Survey%20on%20ChatGPT%20and%20Beyond.pdf)] [[arxiv](https://arxiv.org/abs/2210.02414)] [[project](https://github.com/Mooler0410/LLMsPracticalGuide)]
 
-    Authors also provide a curated list of practical guide resources for LLMs. It's an evolutionary tree of modern LLMs.
-    <img src="./notes/pics/llm-tree.png" alt="alt text" title="Optional title" style="zoom: 70%;" />
+    Authors also provide a curated list of practical guide resources for LLMs. 
+    
+    ~~It's an evolutionary tree of modern LLMs.~~ (The taxonomy and nomenclature may be confusing sometimes, so I do not refer to the tree diagram here.)
 
     Moreover, they build a decision flow for choosing LLMs or fine-tuned models for user's NLP applications. The decision flow helps users assess whether their downstream NLP applications at hand meet specific conditions and, based on that evaluation, determine whether LLMs or fine-tuned models are the most suitable choice for their applications.
-    <img src="./notes/pics/llm-decision-flow.png" alt="alt text" title="Optional title" style="zoom: 80%;" />
+    <img src="./notes/pics/llm-decision-flow.png" alt="alt text" title="Optional title" width="90%" /> -->
+
 
 ### Parameter-Efficient Fine-Tuning 🛩
 
@@ -223,7 +242,7 @@
 
 + **Visual ChatGPT: Talking, Drawing and Editing with Visual Foundation Models.**
 
-    *Chenfei Wu, Shengming Yin, Weizhen Qi, Xiaodong Wang, Zecheng Tang, Nan Duan.* **arxiv, 2023** [[pdf](./documents/2023.Visual%20ChatGPT.pdf)] [[arxiv](https://arxiv.org/abs/2303.04671)]
+    *Chenfei Wu, Shengming Yin, Weizhen Qi, Xiaodong Wang, Zecheng Tang, Nan Duan.* **arxiv, 2023** [[pdf](./documents/2023.Visual%20ChatGPT.pdf)] [[arxiv](https://arxiv.org/abs/2303.04671)] [[project](https://github.com/microsoft/TaskMatrix)]
 
 
 ### Linguistics 📜

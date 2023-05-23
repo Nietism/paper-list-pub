@@ -129,6 +129,12 @@
 
     *Rohan Anil, Andrew M. Dai, Orhan Firat, Melvin Johnson and many authors.* **arxiv, 2023.** [[pdf](./documents/2023.PaLM%202%20Technical%20Report.pdf)] [[arxiv](https://arxiv.org/abs/2305.10403)]
 
++ **RWKV: Reinventing RNNs for the Transformer Era.**
+
+    *Bo Peng, Eric Alcaide, Quentin Anthony, Alon Albalak, Samuel Arcadinho, Huanqi Cao, Xin Cheng, Michael Chung, Matteo Grella, Kranthi Kiran GV, Xuzheng He, Haowen Hou, Przemyslaw Kazienko, Jan Kocon, Jiaming Kong, Bartlomiej Koptyra, Hayden Lau, Krishna Sri Ipsit Mantri, Ferdinand Mom, Atsushi Saito, Xiangru Tang, Bolun Wang, Johan S. Wind, Stansilaw Wozniak, Ruichong Zhang, Zhenyuan Zhang, Qihang Zhao, Peng Zhou, Jian Zhu, Rui-Jie Zhu.* **arxiv, 2023.** [[pdf](./documents/2023.RWKV-v1.pdf)] [[arxiv](https://arxiv.org/abs/2305.13048)]
+
+    RWKV is an RNN with transformer-level LLM performance. It can be directly trained like a GPT (parallelizable). 
+
 + **Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond.**
 
     *Jingfeng Yang, Hongye Jin, Ruixiang Tang, Xiaotian Han, Qizhang Feng, Haoming Jiang, Bing Yin, Xia Hu.* **arxiv, 2023.** [[pdf](./documents/2023.Harnessing%20the%20Power%20of%20LLMs%20in%20Practice-A%20Survey%20on%20ChatGPT%20and%20Beyond.pdf)] [[arxiv](https://arxiv.org/abs/2210.02414)] [[project](https://github.com/Mooler0410/LLMsPracticalGuide)]
