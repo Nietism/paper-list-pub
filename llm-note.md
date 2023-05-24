@@ -131,7 +131,7 @@
 
 + **RWKV: Reinventing RNNs for the Transformer Era.**
 
-    *Bo Peng, Eric Alcaide, Quentin Anthony, Alon Albalak, Samuel Arcadinho, Huanqi Cao, Xin Cheng, Michael Chung, Matteo Grella, Kranthi Kiran GV, Xuzheng He, Haowen Hou, Przemyslaw Kazienko, Jan Kocon, Jiaming Kong, Bartlomiej Koptyra, Hayden Lau, Krishna Sri Ipsit Mantri, Ferdinand Mom, Atsushi Saito, Xiangru Tang, Bolun Wang, Johan S. Wind, Stansilaw Wozniak, Ruichong Zhang, Zhenyuan Zhang, Qihang Zhao, Peng Zhou, Jian Zhu, Rui-Jie Zhu.* **arxiv, 2023.** [[pdf](./documents/2023.RWKV-v1.pdf)] [[arxiv](https://arxiv.org/abs/2305.13048)]
+    *Bo Peng, Eric Alcaide, Quentin Anthony, Alon Albalak, Samuel Arcadinho, Huanqi Cao, Xin Cheng, Michael Chung, Matteo Grella, Kranthi Kiran GV, Xuzheng He, Haowen Hou, Przemyslaw Kazienko, Jan Kocon, Jiaming Kong, Bartlomiej Koptyra, Hayden Lau, Krishna Sri Ipsit Mantri, Ferdinand Mom, Atsushi Saito, Xiangru Tang, Bolun Wang, Johan S. Wind, Stansilaw Wozniak, Ruichong Zhang, Zhenyuan Zhang, Qihang Zhao, Peng Zhou, Jian Zhu, Rui-Jie Zhu.* **arxiv, 2023.** [[pdf](./documents/2023.RWKV-v1.pdf)] [[arxiv](https://arxiv.org/abs/2305.13048)] [[project](https://github.com/BlinkDL/RWKV-LM)]
 
     RWKV is an RNN with transformer-level LLM performance. It can be directly trained like a GPT (parallelizable). 
 
@@ -189,6 +189,7 @@
             "Tool Responses": "<|Results|>:\nSearch(\"自然语言处理应用\") =>\n<|1|>: '电子邮件筛选器是NLP 最基础且最初的在线应用之一。最开始是垃圾邮件筛选器，可以发现指示垃圾邮件信息的某些字词或短语。但是筛选功能已经升级，就像 ...'\n<|2|>: '网络上有海量的文本信息，想要处理这些非结构化的数据就需要利用NLP 技术。本文将介绍NLP 的基本概念，2大任务，4个典型应用，5个难点和6个实践步骤。'\n<|3|>: '自然语言处理(NLP) 是一种机器学习技术，使计算机能够解读、处理和理解人类语言。如今，组织具有来自各种通信渠道（例如电子邮件、短信、社交媒体新闻源、视频、音频） ...'\n<eor>\n",
             "MOSS": "<|MOSS|>: 自然语言处理(NLP)的应用非常广泛，包括但不限于电子邮件筛选器、文本分类、情感分析、机器翻译、语音识别、问答系统等。NLP在各个领域中都有应用，比如在医疗领域中可以用于诊断和治疗，金融领域中可以用于自动化客户服务和欺诈检测等。如果您想了解更多关于NLP应用的信息，可以查看一些相关文章，例如 <|1|> <|2|> <|3|>。<eom>\n"
         }
+    }
     ```
 
 ### 相关项目
