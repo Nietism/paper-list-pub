@@ -231,11 +231,29 @@
 
 对模型来说，每1B参数在fp32精度下占4G显存，在fp16精度下占2G显存，CUDA驱动会占用1.3G左右，例如6B的ChatGLM模型加载到一张GPU之后，占用在13G左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的Adam系列优化器需要存储每个可学习参数的一阶/二阶动量，那么在全参数微调的情况下，还需要再占用2倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
 
++ **LoRA: Low-Rank Adaptation of Large Language Models.**
+
+    *Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen.* **arxiv, 2021.** [[pdf](./documents/2021.LoRA-low-rank-adaptation.pdf)] [[arxiv](https://arxiv.org/abs/2106.09685)]
+
+    通过低秩分解来实现参数高效的微调。
+
+    $$
+        W = W + \Delta W, W \in \mathbb{R}^{d \times d} \notag \\
+        \Delta W = A B, A \in \mathbb{R}^{d \times r}, B \in \mathbb{R}^{r \times d} \notag \\
+    $$
+
 + **Towards a Unified View of Parameter-Efficient Transfer Learning.**
 
     *Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-Kirkpatrick, Graham Neubig.* **ICLR, 2022.** [[pdf](./documents/2021.Towards%20a%20Unified%20View%20of%20Parameter-Efficient%20Transfer%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2110.04366)] [[project](https://github.com/jxhe/unify-parameter-efficient-tuning)]
 
     将Adapter、Prefix Tuning和LoRA三种方法统一到同一视角下进行讨论，并提出了几种变体方法。
+
++ **QLoRA: Efficient Finetuning of Quantized LLMs.**
+
+    *Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer.* **arxiv, 2023.** [[pdf](./documents/2023.QLoRA.pdf)] [[arxiv](https://arxiv.org/abs/2305.14314)] [[project](https://github.com/artidoro/qlora)]
+
+    在LoRA的基础上通过量化、分页等方法进一步优化资源占用。
+
 
 相关项目中这两个库封装了一些常用的参数高效微调方法，peft库的实现已经比较全面，并且针对RLHF阶段做了一些支持。
 
