@@ -160,6 +160,10 @@
     <img src="./notes/pics/llm-decision-flow.png" alt="alt text" title="Optional title" width="90%" />
     </p>
 
++ **A PhD Student's Perspective on Research in NLP in the Era of Very Large Language Models.**
+
+    *Oana Ignat, Zhijing Jin, Artem Abzaliev, Laura Biester, Santiago Castro, Naihao Deng, Xinyi Gao, Aylin Gunal, Jacky He, Ashkan Kazemi, Muhammad Khalifa, Namho Koh, Andrew Lee, Siyang Liu, Do June Min, Shinka Mori, Joan Nwatu, Veronica Perez-Rosas, Siqi Shen, Zekun Wang, Winston Wu, Rada Mihalcea.* **arxiv, 2023.** [[pdf](./documents/2023.A%20PhD%20Student's%20Perspective%20on%20Research%20in%20NLP%20in%20the%20Era%20of%20Very%20Large%20Language%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2305.12544)]
+
 
 ## 开源项目和相关资源 🍔
 
