@@ -171,7 +171,11 @@
 
 + **LLaMA.** [[arxiv](https://arxiv.org/abs/2302.13971)] [[github](https://github.com/facebookresearch/llama)]
 
-    也有第三方泄露发布在huggingface上的版本：https://huggingface.co/decapoda-research
+     第三方发布在huggingface上的版本：https://huggingface.co/decapoda-research
+
++ **CPM-Bee.** [[github](https://github.com/OpenBMB/CPM-Bee)]
+
+     开源的中/英双语预训练语言模型，参数量为10B，拥有十余种原生能力和强大的通用语言能力，并支持结构化输入和输出。
 
 + **ChatGLM-6B.** [[blog](https://chatglm.cn/blog)] [[github](https://github.com/THUDM/ChatGLM-6B)]
 
