@@ -4,7 +4,7 @@
 
     *MLNLP community.* [[github](https://github.com/MLNLP-World/Awesome-LLM)]
 
-    MLNLP社区维护的repo. 整理了**开源**的模型和**开源**的指令微调、RLHF数据。其中开源模型虽然列出了很多，foundation model基本都是LLaMA或者BLOOM，此外还有GLM和MOSS. 也按类别维护了一份相当全面的paper list.
+    MLNLP 社区维护的 repo. 整理了**开源**的模型和**开源**的指令微调、RLHF 数据。其中开源模型虽然列出了很多，foundation model 基本都是 LLaMA 或者 BLOOM，此外还有 GLM 和 MOSS. 也按类别维护了一份相当全面的 paper list.
 
 + **LLMSurvey.**
 
@@ -14,7 +14,7 @@
 
     *OpenDILab.* [[github](https://github.com/opendilab/awesome-RLHF)]
 
-    整理了RLHF相关的研究文章、数据、博客。
+    整理了 RLHF 相关的研究文章、数据、博客。
 
 
 ## 相关文章和博客 📰
@@ -41,7 +41,7 @@
 
     *Nisan Stiennon, Long Ouyang, Jeff Wu, Daniel M. Ziegler, Ryan Lowe, Chelsea Voss, Alec Radford, Dario Amodei, Paul Christiano.* **NeurIPS, 2020.** [[pdf](./documents/2020.Learning%20to%20summarize%20from%20human%20feedback.pdf)] [[arxiv](https://arxiv.org/abs/2009.01325)] [[samples](https://openaipublic.blob.core.windows.net/summarize-from-feedback/website/index.html#/)] [[project](https://github.com/openai/summarize-from-feedback)] 
 
-    采用RLHF技术做摘要任务。
+    采用 RLHF 技术做摘要任务。
 
 + **Training language models to follow instructions with human feedback.**
 
@@ -75,23 +75,23 @@
 
     *Timo Schick, Jane Dwivedi-Yu, Roberto Dessì, Roberta Raileanu, Maria Lomeli, Luke Zettlemoyer, Nicola Cancedda, Thomas Scialom.* **arxiv, 2023.** [[pdf](./documents/2023.Toolformer.pdf)] [[arxiv](https://arxiv.org/abs/2302.04761)]
 
-    主要探究了如何让语言模型学会按需使用外部工具。作者发现api的工作方式和自然语言有共同之处，比如一句话中后半句的发生往往靠前半句触发，这和api的工作方式非常类似。作者就提出将api调用显式地嵌入在自然语言中，用language modeling继续fine-tune，让模型学会when/which/how to call API，在infer阶段，解码到api调用的token时，就暂时中断解码，调用对应的api，获取response之后再继续解码，从而实现了模型自动调用api的能力。
+    主要探究了如何让语言模型学会按需使用外部工具。作者发现 api 的工作方式和自然语言有共同之处，比如一句话中后半句的发生往往靠前半句触发，这和 api 的工作方式非常类似。作者就提出将 api 调用显式地嵌入在自然语言中，用 language modeling 继续fine-tune，让模型学会 when/which/how to call API，在 infer 阶段，解码到 api 调用的 token 时，就暂时中断解码，调用对应的 api，获取 response 之后将其拼接到文中再继续解码，从而实现了模型自动调用 api 的能力。
 
     用于训练的语料如果采用人工标注的话，会比较麻烦，文中使用的方法是通过语言模型造出大量的数据，之后再进行过滤得到训练数据。例如这样一条句子：
     ```
     Joe Biden was born in Scranton.
     ```
-    先让语言模型将其调整为显式调用api的形式，其中，`[QA("Where was Joe Biden born?")]`就是一个api调用。
+    先让语言模型将其调整为显式调用 api 的形式，其中，`[QA("Where was Joe Biden born?")]`就是一个 api 调用。
     ```
     Joe Biden was born in [QA("Where was Joe Biden born?")] Scranton.
     ```
-    最终，过滤之后得到的质量较高的api还需要添加一些special token再放回到文本中：
+    最终，过滤之后得到的质量较高的 api 还需要添加一些 special token 再放回到文本中：
     ```
     Joe Biden was born in <API> [QA("Where was Joe Biden born?")]->Scranton </API>.
     ```
-    之后就在这样的语料上继续fine-tune语言模型，从而让模型学会调用api，获得使用外部工具的能力。
+    之后就在这样的语料上继续 fine-tune 语言模型，从而让模型学会调用 api，获得使用外部工具的能力。
 
-    但是也需要注意，Toolformer这种方法需要特别准备训练数据，可扩展性、泛化性不太好（支持**各种**api），比如微调之后的Toolformer只会调用文中准备的6种工具，支持plugin版本的MOSS也同样。这种方法和现在的ChatGPT with plug-ins还是有一定区别的，后者的思路仍然是支持在不重新训练模型的基础上，zero-shot/few-shot地去调用各种api.
+    但是也需要注意，Toolformer 这种方法需要特别准备训练数据，可扩展性、泛化性不太好（支持**各种** api），比如微调之后的 Toolformer 只会调用文中准备的 6 种工具，支持 plugin 版本的 MOSS 也同样。这种方法和现在的 ChatGPT with plug-in 还是有一定区别的，后者的思路仍然是支持在不重新训练模型的基础上，zero-shot/few-shot 地去调用各种 api.
 
 + **Tool Learning with Foundation Models.**
 
@@ -139,7 +139,7 @@
 
     *Jingfeng Yang, Hongye Jin, Ruixiang Tang, Xiaotian Han, Qizhang Feng, Haoming Jiang, Bing Yin, Xia Hu.* **arxiv, 2023.** [[pdf](./documents/2023.Harnessing%20the%20Power%20of%20LLMs%20in%20Practice-A%20Survey%20on%20ChatGPT%20and%20Beyond.pdf)] [[arxiv](https://arxiv.org/abs/2210.02414)] [[project](https://github.com/Mooler0410/LLMsPracticalGuide)]
 
-    这篇综述首先梳理了LLMs的发展，再从任务出发，介绍了LLMs在不同任务中的优缺点。
+    这篇综述首先梳理了 LLMs 的发展，再从任务出发，介绍了 LLMs 在不同任务中的优缺点。
     
     下图是作者绘制的大型语言模型的演化树。
 
@@ -147,7 +147,7 @@
     <img src="./notes/pics/llm-tree.png" alt="alt text" title="Optional title" width="75%;" />
     </p>
 
-    需要注意到有时候一些概念、分类法、术语还是比较让人困惑的，这张图的初版中左侧的粉色branch标的是encoder-only，中间的绿色branch标的是encoder-decoder，右侧的灰色branch标的是decoder-only. 而例如，GLM基于GPT-2的transformer layer实现，但GLM被分在了encoder-decoder的类别中，ERNIE 3.0的表示学习部分基于transformer encoder layer，但是在这个分类里将其划分为了decoder-only的类别。
+    需要注意到有时候一些概念、分类法、术语还是比较让人困惑的，这张图的初版中左侧的粉色 branch 标的是 encoder-only，中间的绿色 branch 标的是 encoder-decoder，右侧的灰色 branch 标的是 decoder-only. 而例如，GLM 基于 GPT-2 的transformer layer 实现，但 GLM 被分在了 encoder-decoder 的类别中，ERNIE 3.0 的表示学习部分基于 transformer encoder layer，但是在这个分类里将其划分为了 decoder-only 的类别。
     关于这点，Yi Tay 做了一些总结：https://twitter.com/YiTayML/status/1651927473884655616?s=20
 
     <!-- <p align="center">
@@ -171,7 +171,7 @@
 
 + **LLaMA.** [[arxiv](https://arxiv.org/abs/2302.13971)] [[github](https://github.com/facebookresearch/llama)]
 
-     第三方发布在huggingface上的版本：https://huggingface.co/decapoda-research
+     第三方发布在 huggingface 上的版本：https://huggingface.co/decapoda-research
 
 + **CPM-Bee.** [[github](https://github.com/OpenBMB/CPM-Bee)]
 
@@ -183,11 +183,11 @@
 
 + **Chinese-LLaMA-Alpaca.** [[arxiv](https://arxiv.org/abs/2304.08177)] [[github](https://github.com/ymcui/Chinese-LLaMA-Alpaca)]
 
-    开源了中文LLaMA模型和指令精调的Alpaca大模型，在原版LLaMA的基础上扩充了中文词表并使用了中文数据进行二次预训练，开源了7B和13B的版本。
+    开源了中文 LLaMA 模型和指令精调的 Alpaca 大模型，在原版 LLaMA 的基础上扩充了中文词表并使用了中文数据进行二次预训练，开源了 7B 和 13B 的版本。
 
 + **MOSS.** [[github](https://github.com/OpenLMLab/MOSS)]
 
-    在CodeGen的基础上进行中文预训练得到了基座模型，发布的moss-moon-003系列模型参数量在16B左右。插件增强方面的实现应该参考了[Toolformer](https://arxiv.org/abs/2302.04761)的思路，将api调用显式地嵌入在自然语言中，比如：
+    在 CodeGen 模型的基础上进行中文预训练得到了基座模型，发布的 moss-moon-003 系列模型参数量在 16B 左右。插件增强方面的实现应该参考了 [Toolformer](https://arxiv.org/abs/2302.04761) 的思路，将api调用显式地嵌入在自然语言中，比如：
     ```json
     "chat": {
         "turn_1": {
@@ -204,15 +204,15 @@
 
 + **Alpaca-LoRA.** [[github](https://github.com/tloen/alpaca-lora)]
 
-    比较早的使用LoRA微调Alpaca的项目。
+    比较早的使用 LoRA 微调 Alpaca 的项目。
 
 + **ChatGLM-Efficient-Tuning.** [[github](https://github.com/hiyouga/ChatGLM-Efficient-Tuning)]
 
-    基于PEFT库的高效ChatGLM微调，实现了LoRA、P-Tuning V2、Freeze三种微调方法。
+    基于 PEFT 库的高效 ChatGLM 微调，实现了 LoRA、P-Tuning V2、Freeze 三种微调方法。
 
 + **LMFlow.** [[github](https://github.com/OptimalScale/LMFlow)]
 
-    一个用于微调大型机器学习模型的可扩展、方便和高效的工具箱，支持huggingface中所有的decoder-only models，包括LLaMA、GPT2、GPT-Neo和Galactica等。
+    一个用于微调大型机器学习模型的可扩展、方便和高效的工具箱，支持 huggingface 中所有的 decoder-only models，包括 LLaMA、GPT2、GPT-Neo 和 Galactica 等。
 
 + **FastChat.** [[github](https://github.com/lm-sys/FastChat)]
 
@@ -220,11 +220,11 @@
 
 + **PEFT: State-of-the-art Parameter-Efficient Fine-Tuning.** [[github](https://github.com/huggingface/peft)]
 
-    huggingface的参数高效微调工具包，现在已经支持LoRA、Prefix Tuning、P-Tuning、Prompt Tuning和AdaLoRA这五种方法。
+    huggingface 的参数高效微调工具包，现在已经支持 LoRA、Prefix Tuning、P-Tuning、Prompt Tuning 和 AdaLoRA 这五种方法。
 
 + **LLM-Adapters.** [[arxiv](https://arxiv.org/abs/2304.01933)] [[github](https://github.com/AGI-Edgerunners/LLM-Adapters)]
 
-    与peft库类似，支持的参数微调方法更多，支持AdapterH、AdapterP等方法。
+    与 peft 库类似，支持的参数微调方法更多，支持 AdapterH、AdapterP 等方法。
 
 + **LLM Zoo.** [[github](https://github.com/FreedomIntelligence/LLMZoo)]
 
@@ -232,12 +232,12 @@
 
 + **PKU-Beaver.** [[github](https://github.com/PKU-Alignment/safe-rlhf)]
 
-    基于LLaMA-7B，开源了SFT和RLHF全过程的实现。在模型安全性方面（Helpful, Honest, Harmless）做了深入讨论，设计和实现了基于 constrained value alignment的Safe RLHF方法。此外也开源了用于安全性方面的RLHF数据集。
+    基于 LLaMA-7B，开源了 SFT 和 RLHF 全过程的实现。在模型安全性方面（Helpful, Honest, Harmless）做了深入讨论，设计和实现了基于 constrained value alignment 的 Safe RLHF 方法。此外也开源了用于安全性方面的 RLHF 数据集。
 
 
 ### 参数高效的微调方法（parameter-efficient fine-tuning）
 
-对模型来说，每1B参数在fp32精度下占4G显存，在fp16精度下占2G显存，CUDA驱动会占用1.3G左右，例如6B的ChatGLM模型以fp16精度加载到一张GPU之后，占用在13G左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的Adam系列优化器需要存储每个可学习参数的一阶/二阶动量，那么在全参数微调的情况下，还需要再占用2倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
+对模型来说，每 1B 参数在 fp32 精度下占 4G 显存，在 fp16 精度下占 2G 显存，CUDA 驱动会占用 1.3G 左右，例如 6B 的 ChatGLM 模型以 fp16 精度加载到一张 GPU 上之后，占用在 13G 左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的 Adam 系列优化器需要存储每个可学习参数的一阶/二阶动量，那么在全参数微调的情况下，还需要再占用 2 倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的 0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
 
 + **LoRA: Low-Rank Adaptation of Large Language Models.**
 
@@ -254,16 +254,16 @@
 
     *Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-Kirkpatrick, Graham Neubig.* **ICLR, 2022.** [[pdf](./documents/2021.Towards%20a%20Unified%20View%20of%20Parameter-Efficient%20Transfer%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2110.04366)] [[project](https://github.com/jxhe/unify-parameter-efficient-tuning)]
 
-    将Adapter、Prefix Tuning和LoRA三种方法统一到同一视角下进行讨论，并提出了几种变体方法。
+    将 Adapter、Prefix Tuning 和 LoRA 三种方法统一到同一视角下进行讨论，并提出了几种变体方法。
 
 + **QLoRA: Efficient Finetuning of Quantized LLMs.**
 
     *Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer.* **arxiv, 2023.** [[pdf](./documents/2023.QLoRA.pdf)] [[arxiv](https://arxiv.org/abs/2305.14314)] [[project](https://github.com/artidoro/qlora)]
 
-    在LoRA的基础上通过量化、分页等方法进一步优化资源占用。
+    在 LoRA 的基础上通过量化、分页等方法进一步优化资源占用。
 
 
-相关项目中这两个库封装了一些常用的参数高效微调方法，peft库的实现已经比较全面，并且针对RLHF阶段做了一些支持。
+相关项目中这两个库封装了一些常用的参数高效微调方法，peft 库的实现已经比较全面，并且针对 RLHF 阶段做了一些支持。
 
 + **PEFT: State-of-the-art Parameter-Efficient Fine-Tuning.** [[github](https://github.com/huggingface/peft)]
 
@@ -274,16 +274,16 @@
 
 指令微调的数据集通常用两种方法产出：
 
-1. 格式化已有数据集。将传统的NLP数据集格式调整后，用于指令微调。可以通过ChatGPT/GPT-4/Claude等现有的表现较好的模型生成instruciton。
+1. 格式化已有数据集。将传统的 NLP 数据集格式调整后，用于指令微调。可以通过 ChatGPT/GPT-4/Claude 等现有的表现较好的模型生成 instruciton。
 
-2. 人工标注数据集。为获得更好的人类对齐效果，OpenAI 建议使用人工标注数据集。当然目前也存在很多依靠ChatGPT生成的数据集，包括用户分享的ChatGPT对话历史（如ShareGPT）或者使用ChatGPT生成的数据集。
+2. 人工标注数据集。为获得更好的人类对齐效果，OpenAI 建议使用人工标注数据集。当然目前也存在很多依靠 ChatGPT 生成的数据集，包括用户分享的 ChatGPT 对话历史（如 ShareGPT）或者使用 ChatGPT 生成的数据集。
 <p align="center">
 <img src="./notes/pics/construct-instruction.png" alt="alt text" title="Optional title"/>
 </p>
 
-如果基座模型是GPT/LLaMA这类模型，指令微调基本可以直接使用一般的Causal Language Modeling的训练脚本（如transformers库示例中的[run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)），根据数据格式、具体需要稍微修改一下就可以，ChatGLM、Alpaca、MOSS的repo里也都提供了指令微调的代码。
+如果基座模型是 GPT/LLaMA 这类模型，指令微调基本可以直接使用一般的 Causal Language Modeling 的训练脚本（如 transformers库示例中的 [run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)），根据数据格式、具体需要稍微修改一下就可以，ChatGLM、Alpaca、MOSS 的 repo 里也都提供了指令微调的代码。
 
-指令微调数据集比较典型的格式（Alpaca等）是这样的：
+指令微调数据集比较典型的格式（Alpaca 等）是这样的：
 ```json
 [
     {
@@ -327,7 +327,7 @@ def generate_prompt(instruction, input=None):
                 """
 ```
 
-ChatGLM微调数据的格式类似OpenAI微调接口的格式，每条样本中只含两项。
+ChatGLM 微调数据的格式类似 OpenAI 微调接口的格式，每条样本中只含两项。
 ```json
 {
     "prompt": "编辑文章，使其更吸引读者。自主机器人是计算机控制的机器，被编程执行特定任务而不需要任何人类输入。自主机器人在各个行业中被越来越广泛地应用，从制造业到医疗保健再到安全。", 
@@ -341,7 +341,7 @@ ChatGLM微调数据的格式类似OpenAI微调接口的格式，每条样本中�
 {"prompt": "95", "response": "上下水管温差怎么样啊？空气是不是都排干净了呢？", "history": [["长城h3风扇不转。继电器好的。保险丝好的传感器新的风扇也新的这是为什么。就是继电器缺一个信号线", "用电脑能读数据流吗？水温多少"]]}
 {"prompt": "是的。上下水管都好的", "response": "那就要检查线路了，一般风扇继电器是由电脑控制吸合的，如果电路存在断路，或者电脑坏了的话会出现继电器不吸合的情况！", "history": [["长城h3风扇不转。继电器好的。保险丝好的传感器新的风扇也新的这是为什么。就是继电器缺一个信号线", "用电脑能读数据流吗？水温多少"], ["95", "上下水管温差怎么样啊？空气是不是都排干净了呢？"]]}
 ```
-训练/推理的时候也需要将它们拼接为完整的对话（以ChatGLM为例）：
+训练/推理的时候也需要将它们拼接为完整的对话（以 ChatGLM 为例）：
 ```python
 ...
     if history_column is None:
@@ -358,7 +358,7 @@ ChatGLM微调数据的格式类似OpenAI微调接口的格式，每条样本中�
     b_ids = tokenizer.encode(text=answer, add_special_tokens=False)
 ...
 ```
-MOSS的对话数据的结构比较清晰：
+MOSS 的对话数据的结构比较清晰：
 ```json
 {
     "conversation_id": "14",
@@ -397,7 +397,7 @@ MOSS的对话数据的结构比较清晰：
 
     *Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy.* **arxiv, 2023.** [[pdf](./documents/2023.LIMA-Less-Is-More-for-Alignment.pdf)] [[arxiv](https://arxiv.org/abs/2305.11206)]
 
-    人工构建了1000条精心标注的指令/对话数据样本，用来微调一个LLaMA-65B模型，仅仅只做指令微调，没有RLHF阶段。微调后在人工评估中比Alpaca-65B和text-davinci-003产生了更多的偏好输出，差于Bard、Claude、GPT-4.
+    人工构建了 1000 条精心标注的指令/对话数据样本，用来微调一个 LLaMA-65B 模型，仅仅只做指令微调，没有 RLHF 阶段。微调后在人工评估中比 Alpaca-65B 和 text-davinci-003 产生了更多的偏好输出，差于 Bard、Claude、GPT-4.
 
 ### 基于人类反馈的强化学习（RLHF）
 
@@ -405,7 +405,7 @@ MOSS的对话数据的结构比较清晰：
 <img src="./notes/pics/coati-stage-3.jpeg" width="90%"/>
 </p>
 
-以InstructGPT文中提到的训练过程为例，在RLHF阶段需要用到4个模型：阶段1监督指令微调得到的模型SFT model，阶段2训练得到的reward model，actor model和critic model。其中，actor用SFT model初始化，critic用reward model初始化，这样的训练过程对机器有很高要求。也有很多工作尝试不使用PPO进行alignment，例如[RRHF](https://github.com/GanjinZero/RRHF)和[RAFT](https://arxiv.org/abs/2304.06767)，都尝试将训练出的reward model结合到传统的微调中，思路都是选出分数较高、更好的样本送入模型进行微调。
+以 InstructGPT 文中提到的训练过程为例，在 RLHF 阶段需要用到 4 个模型：阶段 1 监督指令微调得到的模型 SFT model，阶段 2 训练得到的 reward model，actor model 和 critic model。其中，actor 用 SFT model 初始化，critic 用 reward model 初始化，这样的训练过程对机器有很高要求。也有很多工作尝试不使用 PPO 进行 alignment，例如 [RRHF](https://github.com/GanjinZero/RRHF) 和 [RAFT](https://arxiv.org/abs/2304.06767)，都尝试将训练出的 reward model 结合到传统的微调中，思路都是选出分数较高、更好的样本送入模型进行微调。
 <!-- 其中，RAFT是由[LMFlow](https://github.com/OptimalScale/LMFlow)团队提出的。 -->
 
 + **A simplified explanation about RLHF.**
@@ -416,9 +416,9 @@ MOSS的对话数据的结构比较清晰：
 
     *Yoav Goldberg & John Schulman.* [[summary](https://gist.github.com/yoavg/6bff0fecd65950898eba1bb321cfbd81)]
 
-    Yoav Goldberg对John Schulman的talk进行的总结和扩展：为什么要RL，而不是直接拿这部分数据来微调。
+    Yoav Goldberg 对 John Schulman 的 talk 进行的总结和扩展：为什么要用 RL 继续做对齐，而不是用这个阶段使用的数据直接来微调。
 
-目前开源的实现了RLHF的部分工作有：
+目前开源的实现了 RLHF 的部分工作有：
 
 + **PaLM-rlhf-pytorch.** [[github](https://github.com/lucidrains/PaLM-rlhf-pytorch)]
 
@@ -426,15 +426,15 @@ MOSS的对话数据的结构比较清晰：
 
 + **DeepSpeed-Chat.** [[github](https://github.com/microsoft/DeepSpeedExamples/tree/master/applications/DeepSpeed-Chat)]
 
-    其中还有一些细节问题，比如InstructGPT文中没有提到，这两种情况哪种是合适的：
-    1. 把每个token的生成（inference）认为是一个step，每一个action是一个token的生成，action space是词表空间，state在一个step之后更新为(state+new_token)；
-    2. 每次句子生成（generate）是一个step.
+    其中还有一些细节问题，比如 InstructGPT 文中没有提到，这两种情况哪种是合适的：
+    1. 把每个 token 的生成（inference）认为是一个 step，每一个 action 是一个 token 的生成，action space 是词表空间，state 在一个 step 之后更新为 (state + new_token)；
+    2. 每次句子生成（generate）是一个 step.
 
-    ColossalAI实现的是第二种，DeepSpeed-Chat实现的是第一种。
+    ColossalAI 在 ColossalChat 中实现的是第二种，DeepSpeed-Chat 实现的是第一种。
 
 + **PKU-Beaver.** [[github](https://github.com/PKU-Alignment/safe-rlhf)]
 
-    基于LLaMA-7B，开源了SFT和RLHF全过程的实现。在模型安全性方面（Helpful, Honest, Harmless）做了深入讨论，设计和实现了基于constrained value alignment的safe RLHF方法。此外也开源了RLHF阶段的数据集，收集的数据涉及了安全性中各个维度的问题（如隐私、犯罪等）。
+    基于 LLaMA-7B，开源了 SFT 和 RLHF 全过程的实现。在模型安全性方面（Helpful, Honest, Harmless）做了深入讨论，设计和实现了基于 constrained value alignment 的 safe RLHF 方法。此外也开源了 RLHF 阶段的数据集，收集的数据涉及了安全性中各个维度的问题（如隐私、犯罪等）。
 
     | **prompt (string)** | **response_0 (string)** | **response_1 (string)** | **is_response_0_safe (bool)** | **is_response_1_safe (bool)** | **better_response_id (int64)** | **safer_response_id (int64)** |
     | :-----| :----- | :----- | :-----| :----- | :----- | :----- |
@@ -444,15 +444,15 @@ MOSS的对话数据的结构比较清晰：
 
 ## 在一些在具体领域的应用 🚋
 
-[Awesome-LLM的主页](https://github.com/MLNLP-World/Awesome-LLM)中整理得更加详尽全面。
+[Awesome-LLM 的主页](https://github.com/MLNLP-World/Awesome-LLM)中整理得更加详尽全面。
 
 + **本草: 基于中文医学知识的LLaMA微调模型. / BenTsao (original name: HuaTuo): Tuning LLaMA Model With Chinese Medical Instructions.**
 
     *Health Intelligence Group, HIT-SCIR.* [[arxiv](https://arxiv.org/abs/2304.06975)] [[project](https://github.com/SCIR-HI/Huatuo-Llama-Med-Chinese)]
 
-    通过医学知识图谱和GPT3.5 API构建了中文医学指令数据集，并在此基础上对LLaMA-7B进行了指令微调，提高了LLaMA在医疗领域的问答效果。
+    通过医学知识图谱和 GPT-3.5 API 构建了中文医学指令数据集，并在此基础上对 LLaMA-7B 进行了指令微调，提高了 LLaMA 在医疗领域的问答效果。
 
-    基于相同的数据，也训练并开源了医疗版本的ChatGLM模型: [ChatGLM-6B-Med](https://github.com/SCIR-HI/Med-ChatGLM)
+    基于相同的数据，也训练并开源了医疗版本的 ChatGLM 模型: [ChatGLM-6B-Med](https://github.com/SCIR-HI/Med-ChatGLM)
 
 + **Zero-Shot Information Extraction via Chatting with ChatGPT.**
 
@@ -478,13 +478,13 @@ MOSS的对话数据的结构比较清晰：
 
 + **VisualGLM-6B.** [[github](https://github.com/THUDM/VisualGLM-6B)]
 
-    支持图像、中文和英文的多模态对话语言模型，语言模型基于 ChatGLM-6B，具有 62 亿参数；图像部分通过训练 BLIP2-Qformer 构建起视觉模型与语言模型的桥梁，整体模型共78亿参数。
+    支持图像、中文和英文的多模态对话语言模型，语言模型基于 ChatGLM-6B，具有 6.2B 参数；图像部分通过训练 BLIP2-Qformer 构建起视觉模型与语言模型的桥梁，整体模型共 7.8B 参数。
 
 + **SpeechGPT: Empowering Large Language Models with Intrinsic Cross-Modal Conversational Abilities.**
 
     *Dong Zhang, Shimin Li, Xin Zhang, Jun Zhan, Pengyu Wang, Yaqian Zhou, Xipeng Qiu.* [[arxiv](https://arxiv.org/abs/2305.11000)] [[demo page](https://0nutation.github.io/SpeechGPT.github.io)] [[project](https://github.com/0nutation/SpeechGPT)]
 
-    通过扩充词表的方式，将语音数据表示为离散的单元（基于HuBERT）集成到语言模型内，使得语言模型既能接受跨模态输入，也能生成跨模态的输出。
+    通过扩充词表的方式，将语音数据表示为离散的单元（基于 HuBERT）集成到语言模型内，使得语言模型既能接受跨模态输入，也能生成跨模态的输出。
     <!-- <p align="center">
     <img src="./notes/pics/SpeechGPT-main.png" alt="alt text" title="Optional title" width="95%" />
     </p> -->
@@ -493,7 +493,7 @@ MOSS的对话数据的结构比较清晰：
 
 ## Benchmarks ⚖️
 
-对于不同领域、不同模型，比较难给出一个系统、公平的评价。不能简单测试几个例子就下论断说好坏，或者以此为依据宣称“达到了xxx的xx%水平”。
+对于不同领域、不同模型，比较难给出一个系统、公平的评价。不能简单测试几个例子就下论断说好坏，或者以此为依据宣称“达到了 xxx 的 xx% 水平”。
 
 + **BIG-bench.**
 
@@ -503,10 +503,10 @@ MOSS的对话数据的结构比较清晰：
 
     *OpenLMLab.* [[github](https://github.com/OpenLMLab/GAOKAO-Bench)]
 
-    GAOKAO-bench是一个以中国高考题目为数据集，测评大模型语言理解能力、逻辑推理能力的测评框架。
+    GAOKAO-bench 是一个以中国高考题目为数据集，测评大模型语言理解能力、逻辑推理能力的测评框架。
 
 + **C-Eval.**
 
     *Language Intelligence and Technology Group, SJTU.* [[github](https://github.com/SJTU-LIT/ceval)] [[official website](https://cevalbenchmark.com/)] 
  
-    C-Eval是全面的中文基础模型评估套件，涵盖了52个不同学科的13948个多项选择题，分为四个难度级别。
+    C-Eval 是全面的中文基础模型评估套件，涵盖了 52 个不同学科的 13948 个多项选择题，分为四个难度级别。
