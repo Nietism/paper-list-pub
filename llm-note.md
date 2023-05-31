@@ -237,7 +237,7 @@
 
 ### 参数高效的微调方法（parameter-efficient fine-tuning）
 
-对模型来说，每1B参数在fp32精度下占4G显存，在fp16精度下占2G显存，CUDA驱动会占用1.3G左右，例如6B的ChatGLM模型加载到一张GPU之后，占用在13G左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的Adam系列优化器需要存储每个可学习参数的一阶/二阶动量，那么在全参数微调的情况下，还需要再占用2倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
+对模型来说，每1B参数在fp32精度下占4G显存，在fp16精度下占2G显存，CUDA驱动会占用1.3G左右，例如6B的ChatGLM模型以fp16精度加载到一张GPU之后，占用在13G左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的Adam系列优化器需要存储每个可学习参数的一阶/二阶动量，那么在全参数微调的情况下，还需要再占用2倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
 
 + **LoRA: Low-Rank Adaptation of Large Language Models.**
 
@@ -283,7 +283,7 @@
 
 如果基座模型是GPT/LLaMA这类模型，指令微调基本可以直接使用一般的Causal Language Modeling的训练脚本（如transformers库示例中的[run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)），根据数据格式、具体需要稍微修改一下就可以，ChatGLM、Alpaca、MOSS的repo里也都提供了指令微调的代码。
 
-指令微调数据集比较典型的格式（LLaMA等）是这样的：
+指令微调数据集比较典型的格式（Alpaca等）是这样的：
 ```json
 [
     {
@@ -358,7 +358,7 @@ ChatGLM微调数据的格式类似OpenAI微调接口的格式，每条样本中�
     b_ids = tokenizer.encode(text=answer, add_special_tokens=False)
 ...
 ```
-MOSS的对话数据结构比较清晰：
+MOSS的对话数据的结构比较清晰：
 ```json
 {
     "conversation_id": "14",
@@ -390,8 +390,14 @@ MOSS的对话数据结构比较清晰：
     "category": "honest"
 }
 ```
-OpenAI提供了[ChatML格式](https://github.com/openai/openai-python/blob/main/chatml.md)。
 
+微调数据的**数量**、**质量**对性能的影响也是一个有待探究的问题。
+
++ **LIMA: Less Is More for Alignment.**
+
+    *Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy.* **arxiv, 2023.** [[pdf](./documents/2023.LIMA-Less-Is-More-for-Alignment.pdf)] [[arxiv](https://arxiv.org/abs/2305.11206)]
+
+    人工构建了1000条精心标注的指令/对话数据样本，用来微调一个LLaMA-65B模型，仅仅只做指令微调，没有RLHF阶段。微调后在人工评估中比Alpaca-65B和text-davinci-003产生了更多的偏好输出，差于Bard、Claude、GPT-4.
 
 ### 基于人类反馈的强化学习（RLHF）
 
@@ -399,7 +405,8 @@ OpenAI提供了[ChatML格式](https://github.com/openai/openai-python/blob/main/
 <img src="./notes/pics/coati-stage-3.jpeg" width="90%"/>
 </p>
 
-以InstructGPT文中提到的训练过程为例，在RLHF阶段需要用到4个模型：阶段1监督指令微调得到的模型SFT model，阶段2训练得到的reward model，actor model和critic model。其中，actor用SFT model初始化，critic用reward model初始化，这样的训练过程对机器有很高要求。也有很多工作尝试不使用PPO进行alignment，例如[RRHF](https://github.com/GanjinZero/RRHF)和[RAFT](https://arxiv.org/abs/2304.06767)，都尝试将训练出的reward model结合到传统的微调中，思路都是选出分数较高、更好的样本送入模型进行微调。其中，RAFT是由推出了[LMFlow](https://github.com/OptimalScale/LMFlow)的团队提出的。
+以InstructGPT文中提到的训练过程为例，在RLHF阶段需要用到4个模型：阶段1监督指令微调得到的模型SFT model，阶段2训练得到的reward model，actor model和critic model。其中，actor用SFT model初始化，critic用reward model初始化，这样的训练过程对机器有很高要求。也有很多工作尝试不使用PPO进行alignment，例如[RRHF](https://github.com/GanjinZero/RRHF)和[RAFT](https://arxiv.org/abs/2304.06767)，都尝试将训练出的reward model结合到传统的微调中，思路都是选出分数较高、更好的样本送入模型进行微调。
+<!-- 其中，RAFT是由[LMFlow](https://github.com/OptimalScale/LMFlow)团队提出的。 -->
 
 + **A simplified explanation about RLHF.**
 
