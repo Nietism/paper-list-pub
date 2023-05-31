@@ -1,4 +1,4 @@
-## 推荐追踪的一些paper list和资源整理repo 📜
+## 推荐追踪的一些 paper list 和资源整理 repo 📜
 
 + **Awesome-LLM.**
 
@@ -75,7 +75,7 @@
 
     *Timo Schick, Jane Dwivedi-Yu, Roberto Dessì, Roberta Raileanu, Maria Lomeli, Luke Zettlemoyer, Nicola Cancedda, Thomas Scialom.* **arxiv, 2023.** [[pdf](./documents/2023.Toolformer.pdf)] [[arxiv](https://arxiv.org/abs/2302.04761)]
 
-    主要探究了如何让语言模型学会按需使用外部工具。作者发现 api 的工作方式和自然语言有共同之处，比如一句话中后半句的发生往往靠前半句触发，这和 api 的工作方式非常类似。作者就提出将 api 调用显式地嵌入在自然语言中，用 language modeling 继续fine-tune，让模型学会 when/which/how to call API，在 infer 阶段，解码到 api 调用的 token 时，就暂时中断解码，调用对应的 api，获取 response 之后将其拼接到文中再继续解码，从而实现了模型自动调用 api 的能力。
+    主要探究了如何让语言模型学会按需使用外部工具。作者发现 api 的工作方式和自然语言有共同之处，比如一句话中后半句的发生往往靠前半句触发，这和 api 的工作方式非常类似。作者就提出将 api 调用显式地嵌入在自然语言中，用 language modeling 继续 fine-tune，让模型学会 when/which/how to call API，在 infer 阶段，解码到 api 调用的 token 时，就暂时中断解码，调用对应的 api，获取 response 之后将其拼接到文中再继续解码，从而实现了模型自动调用 api 的能力。
 
     用于训练的语料如果采用人工标注的话，会比较麻烦，文中使用的方法是通过语言模型造出大量的数据，之后再进行过滤得到训练数据。例如这样一条句子：
     ```
