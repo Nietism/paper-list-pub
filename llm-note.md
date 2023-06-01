@@ -164,6 +164,11 @@
 
     *Oana Ignat, Zhijing Jin, Artem Abzaliev, Laura Biester, Santiago Castro, Naihao Deng, Xinyi Gao, Aylin Gunal, Jacky He, Ashkan Kazemi, Muhammad Khalifa, Namho Koh, Andrew Lee, Siyang Liu, Do June Min, Shinka Mori, Joan Nwatu, Veronica Perez-Rosas, Siqi Shen, Zekun Wang, Winston Wu, Rada Mihalcea.* **arxiv, 2023.** [[pdf](./documents/2023.A%20PhD%20Student's%20Perspective%20on%20Research%20in%20NLP%20in%20the%20Era%20of%20Very%20Large%20Language%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2305.12544)]
 
++ **State of GPT.**
+
+    *Andrej Karpathy.* **Microsoft build, 2023.** [[pdf](./documents/State-of-GPT.pdf)] [[slides](https://karpathy.ai/stateofgpt.pdf)] [[youtube](https://www.youtube.com/watch?v=bZQun8Y4L2A)] [[bilibili](https://www.bilibili.com/video/BV1Xh4y1x7BT)] 
+
+
 
 ## 开源项目和相关资源 🍔
 
@@ -281,7 +286,7 @@
 <img src="./notes/pics/construct-instruction.png" alt="alt text" title="Optional title"/>
 </p>
 
-如果基座模型是 GPT/LLaMA 这类模型，指令微调基本可以直接使用一般的 Causal Language Modeling 的训练脚本（如 transformers库示例中的 [run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)），根据数据格式、具体需要稍微修改一下就可以，ChatGLM、Alpaca、MOSS 的 repo 里也都提供了指令微调的代码。
+如果基座模型是 GPT/LLaMA 这类模型，指令微调基本可以直接使用一般的 Causal Language Modeling 的训练脚本（如 transformers 库示例中的 [run_clm.py](https://github.com/huggingface/transformers/blob/main/examples/pytorch/language-modeling/run_clm.py)），根据数据格式、具体需要稍微修改一下就可以，ChatGLM、Alpaca、MOSS 的 repo 里也都提供了指令微调的代码。
 
 指令微调数据集比较典型的格式（Alpaca 等）是这样的：
 ```json
