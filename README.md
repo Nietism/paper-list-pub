@@ -224,6 +224,17 @@
 
     *Jialong Tang, Hongyu Lin, Zhuoqun Li, Yaojie Lu, Xianpei Han, Le Sun.* **arxiv, 2023.** [[pdf](./documents/2023.Harvesting%20Event%20Schemas%20from%20Large%20Language%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2305.07280)] [[project](https://github.com/TangJiaLong/Event-Schema-Harvester)] [[note](./notes/2023.Harvesting%20Event%20Schemas%20from%20Large%20Language%20Models.md)]
 
+
+### Language Aquisition 📚
+
++ **Word Acquisition in Neural Language Models.**
+
+    *Tyler A. Chang, Benjamin K. Bergen.* **TACL, 2022.** [[pdf](./documents/2021.Word%20Acquisition%20in%20Neural%20Language%20Models.pdf)] [[acl](https://aclanthology.org/2022.tacl-1.1/)] [[arxiv](https://arxiv.org/abs/2110.02406)] [[project](https://github.com/tylerachang/word-acquisition-language-models)]
+
++ **TinyStories: How Small Can Language Models Be and Still Speak Coherent English?**
+
+    *Ronen Eldan, Yuanzhi Li.* **arxiv, 2023.** [[pdf](./documents/2023.TinyStories.pdf)] [[arxiv](https://arxiv.org/abs/2305.07759)]
+
 ### Graph Learning 🗺
 
 + **GraphRNN: Generating Realistic Graphs with Deep Auto-regressive Models.**
