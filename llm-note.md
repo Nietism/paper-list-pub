@@ -186,6 +186,8 @@
 
     清华/智谱开源的中文大模型，及微调训练工具库。
 
++  **ChatGLM-6B tuning tutorial.** [[slides](./documents/ChatGLM-tuning-tutorial.pdf)] [[video](https://www.bilibili.com/video/BV1fd4y1Z7Y5)]
+
 + **Chinese-LLaMA-Alpaca.** [[arxiv](https://arxiv.org/abs/2304.08177)] [[github](https://github.com/ymcui/Chinese-LLaMA-Alpaca)]
 
     开源了中文 LLaMA 模型和指令精调的 Alpaca 大模型，在原版 LLaMA 的基础上扩充了中文词表并使用了中文数据进行二次预训练，开源了 7B 和 13B 的版本。
@@ -396,13 +398,19 @@ MOSS 的对话数据的结构比较清晰：
 }
 ```
 
-微调数据的**数量**、**质量**对性能的影响也是一个有待探究的问题。
+微调数据的**数量**、**质量**和**多样性**对性能的影响也是一个有待探究的问题。
 
 + **LIMA: Less Is More for Alignment.**
 
     *Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy.* **arxiv, 2023.** [[pdf](./documents/2023.LIMA-Less-Is-More-for-Alignment.pdf)] [[arxiv](https://arxiv.org/abs/2305.11206)]
 
     人工构建了 1000 条精心标注的指令/对话数据样本，用来微调一个 LLaMA-65B 模型，仅仅只做指令微调，没有 RLHF 阶段。微调后在人工评估中比 Alpaca-65B 和 text-davinci-003 产生了更多的偏好输出，差于 Bard、Claude、GPT-4.
+
++ **Maybe Only 0.5% Data is Needed: A Preliminary Exploration of Low Training Data Instruction Tuning.**
+
+    *Hao Chen, Yiming Zhang, Qi Zhang, Hantao Yang, Xiaomeng Hu, Xuetao Ma, Yifan Yanggong, Junbo Zhao.* **arxiv, 2023.** [[pdf](./documents/2023.Maybe%20Only%200.5%25%20Data%20is%20Needed.pdf)] [[arxiv](https://arxiv.org/abs/2305.09246)]
+
+
 
 ### 基于人类反馈的强化学习（RLHF）
 
