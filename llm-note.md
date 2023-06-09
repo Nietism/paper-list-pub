@@ -174,13 +174,16 @@
 
 ### foundation model / tuned model
 
++ **Flan-T5.** [[arxiv](https://arxiv.org/abs/2210.11416)] [[github](https://github.com/google-research/t5x/blob/main/docs/models.md#flan-t5-checkpoints)] [[huggingface](https://huggingface.co/docs/transformers/model_doc/flan-t5)]
+
+
 + **LLaMA.** [[arxiv](https://arxiv.org/abs/2302.13971)] [[github](https://github.com/facebookresearch/llama)]
 
      第三方发布在 huggingface 上的版本：https://huggingface.co/decapoda-research
 
 + **CPM-Bee.** [[github](https://github.com/OpenBMB/CPM-Bee)]
 
-     开源的中/英双语预训练语言模型，参数量为10B，拥有十余种原生能力和强大的通用语言能力，并支持结构化输入和输出。
+     开源的中/英双语预训练语言模型，参数量为10B，支持结构化输入和输出。
 
 + **ChatGLM-6B.** [[blog](https://chatglm.cn/blog)] [[github](https://github.com/THUDM/ChatGLM-6B)]
 
@@ -402,7 +405,7 @@ MOSS 的对话数据的结构比较清晰：
 
 + **LIMA: Less Is More for Alignment.**
 
-    *Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy.* **arxiv, 2023.** [[pdf](./documents/2023.LIMA-Less-Is-More-for-Alignment.pdf)] [[arxiv](https://arxiv.org/abs/2305.11206)]
+    *Chunting Zhou, Pengfei Liu, Puxin Xu, Srini Iyer, Jiao Sun, Yuning Mao, Xuezhe Ma, Avia Efrat, Ping Yu, Lili Yu, Susan Zhang, Gargi Ghosh, Mike Lewis, Luke Zettlemoyer, Omer Levy.* **arxiv, 2023.** [[pdf](./documents/2023.LIMA-Less-Is-More-for-Alignment.pdf)] [[arxiv](https://arxiv.org/abs/2305.11206)] [[dataset](https://huggingface.co/datasets/GAIR/lima)]
 
     人工构建了 1000 条精心标注的指令/对话数据样本，用来微调一个 LLaMA-65B 模型，仅仅只做指令微调，没有 RLHF 阶段。微调后在人工评估中比 Alpaca-65B 和 text-davinci-003 产生了更多的偏好输出，差于 Bard、Claude、GPT-4.
 
