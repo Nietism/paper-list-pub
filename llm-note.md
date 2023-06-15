@@ -1,4 +1,4 @@
-## 推荐追踪的一些 paper list 和资源整理 repo 📜
+## paper list & repo 📜
 
 + **Awesome-LLM.**
 
@@ -181,10 +181,6 @@
 
      第三方发布在 huggingface 上的版本：https://huggingface.co/decapoda-research
 
-+ **CPM-Bee.** [[github](https://github.com/OpenBMB/CPM-Bee)]
-
-     开源的中/英双语预训练语言模型，参数量为10B，支持结构化输入和输出。
-
 + **ChatGLM-6B.** [[blog](https://chatglm.cn/blog)] [[github](https://github.com/THUDM/ChatGLM-6B)]
 
     清华/智谱开源的中文大模型，及微调训练工具库。
@@ -209,6 +205,19 @@
         }
     }
     ```
+
++ **CPM-Bee.** [[github](https://github.com/OpenBMB/CPM-Bee)] [[huggingface](https://huggingface.co/openbmb/cpm-bee-10b)]
+
+     OpenBMB 与面壁智能开源的中/英双语预训练语言模型，参数量为 10B，支持结构化输入和输出。
+
++ **Aquila.** [[github](https://github.com/FlagAI-Open/FlagAI/tree/master/examples/Aquila)] [[model weights](https://model.baai.ac.cn/model-detail/100101)]
+
+     BAAI 发布的系列模型，支持中/英双语。
+
++ **Baichuan-7B.** [[github](https://github.com/baichuan-inc/baichuan-7B)] [[huggingface](https://huggingface.co/baichuan-inc/baichuan-7B)]
+
+     百川智能发布的大规模预训练模型。在约 1.2 万亿 tokens 上训练的 7B 参数模型，支持中英双语，上下文窗口长度为 4096.
+
 
 ### 相关项目
 
