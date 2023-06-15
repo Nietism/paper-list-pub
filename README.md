@@ -142,6 +142,10 @@
 
 ### Information Extraction / Script Learning 🛴
 
++ **A survey of script learning.**
+
+    *Yi Han, Linbo Qiao, Jianming Zheng, Hefeng Wu, Dongsheng Li, Xiangke Liao.* **Frontiers of Information Technology & Electronic Engineering, 2021.** [[pdf](./documents/2021.A%20survey%20of%20script%20learning.pdf)] [[journal website](https://journal.hep.com.cn/ckcest/fitee/EN/10.1631/FITEE.2000347)]
+
 + **What Happens Next? Event Prediction Using a Compositional Neural Network Model.**
 
     *Mark Granroth-Wilding, Stephen Clark.* **AAAI, 2016.** [[pdf](./documents/2016.What%20Happens%20Next%20Event%20Prediction%20Using%20a%20Compositional%20Neural%20Network%20Model.pdf)] [[aaai](https://ojs.aaai.org/index.php/AAAI/article/view/10344)] 
@@ -158,20 +162,23 @@
 
     *I-Ta Lee, Maria Leonor Pacheco, Dan Goldwasser.* **NAACL, 2021.** [[pdf](./documents/2021.Modeling%20Human%20Mental%20States%20with%20an%20Entity-based%20Narrative%20Graph.pdf)] [[acl](https://aclanthology.org/2021.naacl-main.391/)] [[arxiv](https://arxiv.org/abs/2104.07079)] [[project](https://github.com/doug919/entity_based_narrative_graph)]
 
-+ **A survey of script learning.**
-
-    *Yi Han, Linbo Qiao, Jianming Zheng, Hefeng Wu, Dongsheng Li, Xiangke Liao.* **Frontiers of Information Technology & Electronic Engineering, 2021.** [[pdf](./documents/2021.A%20survey%20of%20script%20learning.pdf)] [[journal website](https://journal.hep.com.cn/ckcest/fitee/EN/10.1631/FITEE.2000347)]
-
-
 + **A Survey on Deep Learning Event Extraction: Approaches and Applications.**
 
     *Qian Li, Jianxin Li, Jiawei Sheng, Shiyao Cui, Jia Wu, Yiming Hei, Hao Peng, Shu Guo, Lihong Wang, Amin Beheshti, Philip S. Yu.* **IEEE TNNLS, 2021.** [[pdf-v6-2022.11](./documents/2022.A%20Survey%20on%20Deep%20Learning%20Event%20Extraction-Approaches%20and%20Applications.pdf)] [[pdf-v1-2021.07](./documents/2021.A%20Compact%20Survey%20on%20Event%20Extraction%20Approaches%20and%20Applications.pdf)] [[arxiv](https://arxiv.org/abs/2107.02126)]
+
++ **Open Domain Event Extraction Using Neural Latent Variable Models.**
+
+    *Xiao Liu, Heyan Huang, Yue Zhang.* **ACL, 2019.** [[pdf](./documents/2019.Open%20Domain%20Event%20Extraction%20Using%20Neural%20Latent%20Variable%20Models.pdf)] [[acl](https://aclanthology.org/P19-1276/)] [[arxiv](https://arxiv.org/abs/1906.06947)] [[project](https://github.com/lx865712528/ACL2019-ODEE)]
 
 + **Entity, Relation, and Event Extraction with Contextualized Span Representations.**
 
     *David Wadden, Ulme Wennberg, Yi Luan, Hannaneh Hajishirzi.* **EMNLP-IJCNLP, 2019.** [[pdf](./documents/2019.DyGIE%2B%2B.pdf)] [[acl](https://aclanthology.org/D19-1585/)] [[project](https://github.com/dwadden/dygiepp)]
 
     DyGIE++.
+
++ **Event Extraction as Machine Reading Comprehension.**
+
+    *Jian Liu, Yubo Chen, Kang Liu, Wei Bi, Xiaojiang Liu.* **EMNLP, 2020.** [[pdf](./documents/2020.Event%20Extraction%20as%20Machine%20Reading%20Comprehension.pdf)] [[acl](https://aclanthology.org/2020.emnlp-main.128/)] [[project](https://github.com/jianliu-ml/EEasMRC)]
 
 + **A Joint Neural Model for Information Extraction with Global Features.**
 
@@ -276,6 +283,10 @@
 
 
 ## Courses and Tutorials / Tools 🍔
+
++ **Introduction to Natural Language Processing.**
+
+    *Qi Zhang, Tao Gui, Xuanjing Huang.* **online resource, 2023.** [[pdf](./documents/Introduction_To_NLP.pdf)] [[github](https://github.com/intro-nlp/intro-nlp.github.io)] [[official website](https://intro-nlp.github.io/)]
 
 + **Natural Language Processing with Transformers.**
 
