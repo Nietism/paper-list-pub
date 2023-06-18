@@ -215,6 +215,17 @@
     Flan-T5 (11B) as backbone.
 
 
+### Event Relation Identification (Extraction/Classification) 🌱
+
++ **Modeling Document-level Causal Structures for Event Causal Relation Identification.**
+
+    *Lei Gao, Prafulla Kumar Choubey, Ruihong Huang.* **NAACL, 2019.** [[pdf](./documents/2019.Modeling%20Document-level%20Causal%20Structures%20for%20Event%20Causal%20Relation%20Identification.pdf)] [[acl](https://aclanthology.org/N19-1179/)]
+
++ **Graph Convolutional Networks for Event Causality Identification with Rich Document-level Structures.**
+
+    *Minh Tran Phu, Thien Huu Nguyen.* **NAACL, 2021.** [[pdf](./documents/2021.Graph%20Convolutional%20Networks%20for%20Event%20Causality%20Identification%20with%20Rich%20Document-level%20Structures.pdf)] [[acl](https://aclanthology.org/2021.naacl-main.273/)]
+
+
 ### Event Type Induction / Event Schema Induction 🚲
 
 + **The Future is not One-dimensional: Complex Event Schema Induction by Graph Modeling for Event Prediction.**
