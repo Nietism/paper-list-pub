@@ -193,7 +193,7 @@
 
 + **MOSS.** [[github](https://github.com/OpenLMLab/MOSS)]
 
-    在 CodeGen 模型的基础上进行中文预训练得到了基座模型，发布的 moss-moon-003 系列模型参数量在 16B 左右。插件增强方面的实现应该参考了 [Toolformer](https://arxiv.org/abs/2302.04761) 的思路，将api调用显式地嵌入在自然语言中，比如：
+    在 CodeGen 模型的基础上进行中文预训练得到了基座模型，发布的 moss-moon-003 系列模型参数量在 16B 左右。插件增强方面的实现参考了 [Toolformer](https://arxiv.org/abs/2302.04761) 的思路，将api调用显式地嵌入在自然语言中，比如：
     ```json
     "chat": {
         "turn_1": {
