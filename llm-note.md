@@ -147,7 +147,7 @@
     <img src="./notes/pics/llm-tree.png" alt="alt text" title="Optional title" width="75%;" />
     </p>
 
-    需要注意到有时候一些概念、分类法、术语还是比较让人困惑的，这张图的初版中左侧的粉色 branch 标的是 encoder-only，中间的绿色 branch 标的是 encoder-decoder，右侧的灰色 branch 标的是 decoder-only. 而例如，GLM 基于 GPT-2 的transformer layer 实现，但 GLM 被分在了 encoder-decoder 的类别中，ERNIE 3.0 的表示学习部分基于 transformer encoder layer，但是在这个分类里将其划分为了 decoder-only 的类别。
+    需要注意到有时候一些概念、分类法、术语还是比较让人困惑的，这张图的初版中左侧的粉色 branch 标的是 encoder-only，中间的绿色 branch 标的是 encoder-decoder，右侧的灰色 branch 标的是 decoder-only. 而例如，GLM 基于 GPT-2 的 transformer layer 实现，但 GLM 被分在了 encoder-decoder 的类别中，ERNIE 3.0 的表示学习部分基于 transformer encoder layer，但是在这个分类里将其划分为了 decoder-only 的类别。
     关于这点，Yi Tay 做了一些总结：https://twitter.com/YiTayML/status/1651927473884655616?s=20
 
     <!-- <p align="center">
@@ -252,6 +252,10 @@
 + **PKU-Beaver.** [[github](https://github.com/PKU-Alignment/safe-rlhf)]
 
     基于 LLaMA-7B，开源了 SFT 和 RLHF 全过程的实现。在模型安全性方面（Helpful, Honest, Harmless）做了深入讨论，设计和实现了基于 constrained value alignment 的 Safe RLHF 方法。此外也开源了用于安全性方面的 RLHF 数据集。
+
++ ✨**LLaMA Efficient Tuning / ChatGLM Efficient Tuning.** [[LLaMA tuning codebase](https://github.com/hiyouga/LLaMA-Efficient-Tuning)] [[ChatGLM tuning codebase](https://github.com/hiyouga/ChatGLM-Efficient-Tuning)]
+
+    👍 A very comprehensive codebase.
 
 
 ### 参数高效的微调方法（parameter-efficient fine-tuning）
@@ -539,5 +543,5 @@ MOSS 的对话数据的结构比较清晰：
 + **C-Eval.**
 
     *Language Intelligence and Technology Group, SJTU.* [[github](https://github.com/SJTU-LIT/ceval)] [[official website](https://cevalbenchmark.com/)] 
- 
+
     C-Eval 是全面的中文基础模型评估套件，涵盖了 52 个不同学科的 13948 个多项选择题，分为四个难度级别。
