@@ -281,6 +281,12 @@
 
     在 LoRA 的基础上通过量化、分页等方法进一步优化资源占用。
 
++ **Full Parameter Fine-tuning for Large Language Models with Limited Resources.**
+
+    *Kai Lv, Yuqing Yang, Tengxiao Liu, Qinghui Gao, Qipeng Guo, Xipeng Qiu.* **arxiv, 2023.** [[pdf](./documents/2023.Full%20Parameter%20Fine-tuning%20for%20Large%20Language%20Models%20with%20Limited%20Resources.pdf)] [[arxiv](https://arxiv.org/abs/2306.09782)] [[project](https://github.com/OpenLMLab/LOMO)]
+
+    在有限资源的前提下全参数微调语言模型。
+
 
 相关项目中这两个库封装了一些常用的参数高效微调方法，peft 库的实现已经比较全面，并且针对 RLHF 阶段做了一些支持。
 
