@@ -7,7 +7,8 @@
 ### Large Language Models (LLMs) 🛰
 
 [[link](./llm-note.md)]
-<!-- + **A Survey on In-context Learning.**
+
++ **A Survey on In-context Learning.**
 
     *Qingxiu Dong, Lei Li, Damai Dai, Ce Zheng, Zhiyong Wu, Baobao Chang, Xu Sun, Jingjing Xu, Lei Li, Zhifang Sui.* **arxiv, 2023.** [[pdf](./documents/2023.A%20Survey%20on%20In-context%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2301.00234)] [[project](https://github.com/dqxiu/ICL_PaperList)]
 
@@ -94,7 +95,7 @@
     ~~It's an evolutionary tree of modern LLMs.~~ (The taxonomy and nomenclature may be confusing sometimes, so I do not refer to the tree diagram here.)
 
     Moreover, they build a decision flow for choosing LLMs or fine-tuned models for user's NLP applications. The decision flow helps users assess whether their downstream NLP applications at hand meet specific conditions and, based on that evaluation, determine whether LLMs or fine-tuned models are the most suitable choice for their applications.
-    <img src="./notes/pics/llm-decision-flow.png" alt="alt text" title="Optional title" width="90%" /> -->
+    <img src="./notes/pics/llm-decision-flow.png" alt="alt text" title="Optional title" width="90%" />
 
 
 ### Parameter-Efficient Fine-Tuning 🛩
@@ -295,9 +296,13 @@
 
 ## Courses and Tutorials / Tools 🍔
 
++ **Introduction to Large Language Models.**
+
+    *Qi Zhang, Tao Gui, Rui Zheng, Xuanjing Huang.* **online resource, 2023.** [[official website](https://intro-llm.github.io/)] [[github](https://github.com/intro-llm/intro-llm.github.io)]
+
 + **Introduction to Natural Language Processing.**
 
-    *Qi Zhang, Tao Gui, Xuanjing Huang.* **online resource, 2023.** [[pdf](./documents/Introduction_To_NLP.pdf)] [[github](https://github.com/intro-nlp/intro-nlp.github.io)] [[official website](https://intro-nlp.github.io/)]
+    *Qi Zhang, Tao Gui, Xuanjing Huang.* **online resource, 2023.** [[pdf](./documents/Introduction_To_NLP.pdf)] [[official website](https://intro-nlp.github.io/)] [[github](https://github.com/intro-nlp/intro-nlp.github.io)] 
 
 + **Natural Language Processing with Transformers.**
 
