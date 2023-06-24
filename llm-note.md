@@ -225,10 +225,6 @@
 
     比较早的使用 LoRA 微调 Alpaca 的项目。
 
-+ **ChatGLM-Efficient-Tuning.** [[github](https://github.com/hiyouga/ChatGLM-Efficient-Tuning)]
-
-    基于 PEFT 库的高效 ChatGLM 微调，实现了 LoRA、P-Tuning V2、Freeze 三种微调方法。
-
 + **LMFlow.** [[github](https://github.com/OptimalScale/LMFlow)]
 
     一个用于微调大型机器学习模型的可扩展、方便和高效的工具箱，支持 huggingface 中所有的 decoder-only models，包括 LLaMA、GPT2、GPT-Neo 和 Galactica 等。
@@ -260,7 +256,7 @@
 
 ### 参数高效的微调方法（parameter-efficient fine-tuning）
 
-对模型来说，每 1B 参数在 fp32 精度下占 4G 显存，在 fp16 精度下占 2G 显存，CUDA 驱动会占用 1.3G 左右，例如 6B 的 ChatGLM 模型以 fp16 精度加载到一张 GPU 上之后，占用在 13G 左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的 Adam 系列优化器需要存储每个可学习参数的一阶/二阶动量，那么在全参数微调的情况下，还需要再占用 2 倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的 0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
+对模型来说，每 1B 参数在 fp32 精度下占 4G 显存，在 fp16 精度下占 2G 显存，CUDA 驱动会占用 1.3G 左右，例如 6B 的 ChatGLM 模型以 fp16 精度加载到一张 GPU 上之后，占用在 13G 左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的 Adam 系列优化器需要存储每个可学习参数的一阶动量和二阶动量，那么在全参数微调的情况下，还需要再占用 2 倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的 0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
 
 + **LoRA: Low-Rank Adaptation of Large Language Models.**
 
