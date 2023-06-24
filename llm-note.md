@@ -172,6 +172,59 @@
 
 ## 开源项目和相关资源 🍔
 
+### 高效的训练/微调/推理方法（efficient tuning/inferring）
+
+在模型的训练过程中，对显存的占用主要有这么几块：模型参数、中间激活值、梯度、优化器状态。
+
+对于训练过程中所占用显存的这几部分构成，分别可以引出一系列方法：
++ 参数的精度：混合精度训练、量化等方法。
++ 模型加载：模型并行。
++ 训练过程中可学习的参数量：参数高效的微调方法如 LoRA 和 prefix tuning 等。
++ 梯度和优化器状态：换用不同的优化算法，如 Sophia 和 LOMO 等。
+
+#### 参数高效的微调方法（parameter-efficient fine-tuning）
+
+对模型来说，每 1B 参数在 fp32 精度下占 4G 显存，在 fp16 精度下占 2G 显存，CUDA 驱动会占用 1.3G 左右，例如 6B 的 ChatGLM 模型以 fp16 精度加载到一张 GPU 上之后，占用在 13G 左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的 Adam 系列优化器需要存储每个可学习参数的一阶动量和二阶动量，那么在全参数微调的情况下，还需要再占用 2 倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的 0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
+
++ **LoRA: Low-Rank Adaptation of Large Language Models.**
+
+    *Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen.* **arxiv, 2021.** [[pdf](./documents/2021.LoRA-low-rank-adaptation.pdf)] [[arxiv](https://arxiv.org/abs/2106.09685)]
+
+    通过低秩分解来实现参数高效的微调。
+
+    $$
+        W = W + \Delta W, W \in \mathbb{R}^{d \times d} \notag \\
+        \Delta W = A B, A \in \mathbb{R}^{d \times r}, B \in \mathbb{R}^{r \times d} \notag \\
+    $$
+
++ **Towards a Unified View of Parameter-Efficient Transfer Learning.**
+
+    *Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-Kirkpatrick, Graham Neubig.* **ICLR, 2022.** [[pdf](./documents/2021.Towards%20a%20Unified%20View%20of%20Parameter-Efficient%20Transfer%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2110.04366)] [[project](https://github.com/jxhe/unify-parameter-efficient-tuning)]
+
+    将 Adapter、Prefix Tuning 和 LoRA 三种方法统一到同一视角下进行讨论，并提出了几种变体方法。
+
++ **QLoRA: Efficient Finetuning of Quantized LLMs.**
+
+    *Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer.* **arxiv, 2023.** [[pdf](./documents/2023.QLoRA.pdf)] [[arxiv](https://arxiv.org/abs/2305.14314)] [[project](https://github.com/artidoro/qlora)]
+
+    在 LoRA 的基础上通过量化、分页等方法进一步优化资源占用。
+
+
+相关项目中这两个库封装了一些常用的参数高效微调方法，peft 库的实现已经比较全面，并且针对 RLHF 阶段做了一些支持。
+
++ **PEFT: State-of-the-art Parameter-Efficient Fine-Tuning.** [[github](https://github.com/huggingface/peft)]
+
++ **LLM-Adapters.** [[arxiv](https://arxiv.org/abs/2304.01933)] [[github](https://github.com/AGI-Edgerunners/LLM-Adapters)]
+
+
+#### 优化器（optimizer）
+
++ **Full Parameter Fine-tuning for Large Language Models with Limited Resources.**
+
+    *Kai Lv, Yuqing Yang, Tengxiao Liu, Qinghui Gao, Qipeng Guo, Xipeng Qiu.* **arxiv, 2023.** [[pdf](./documents/2023.Full%20Parameter%20Fine-tuning%20for%20Large%20Language%20Models%20with%20Limited%20Resources.pdf)] [[arxiv](https://arxiv.org/abs/2306.09782)] [[project](https://github.com/OpenLMLab/LOMO)]
+
+    在有限资源的前提下全参数微调语言模型。对 SGD 进行了优化，将梯度计算和参数更新合并到一步中,减少需要缓存的参数量，进一步减少显存占用，从而实现对模型全部参数的微调。
+
 ### foundation model / tuned model
 
 + **Flan-T5.** [[arxiv](https://arxiv.org/abs/2210.11416)] [[github](https://github.com/google-research/t5x/blob/main/docs/models.md#flan-t5-checkpoints)] [[huggingface](https://huggingface.co/docs/transformers/model_doc/flan-t5)]
@@ -252,47 +305,6 @@
 + ✨**LLaMA Efficient Tuning / ChatGLM Efficient Tuning.** [[LLaMA tuning codebase](https://github.com/hiyouga/LLaMA-Efficient-Tuning)] [[ChatGLM tuning codebase](https://github.com/hiyouga/ChatGLM-Efficient-Tuning)]
 
     👍 A very comprehensive codebase.
-
-
-### 参数高效的微调方法（parameter-efficient fine-tuning）
-
-对模型来说，每 1B 参数在 fp32 精度下占 4G 显存，在 fp16 精度下占 2G 显存，CUDA 驱动会占用 1.3G 左右，例如 6B 的 ChatGLM 模型以 fp16 精度加载到一张 GPU 上之后，占用在 13G 左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的 Adam 系列优化器需要存储每个可学习参数的一阶动量和二阶动量，那么在全参数微调的情况下，还需要再占用 2 倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的 0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
-
-+ **LoRA: Low-Rank Adaptation of Large Language Models.**
-
-    *Edward J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen.* **arxiv, 2021.** [[pdf](./documents/2021.LoRA-low-rank-adaptation.pdf)] [[arxiv](https://arxiv.org/abs/2106.09685)]
-
-    通过低秩分解来实现参数高效的微调。
-
-    $$
-        W = W + \Delta W, W \in \mathbb{R}^{d \times d} \notag \\
-        \Delta W = A B, A \in \mathbb{R}^{d \times r}, B \in \mathbb{R}^{r \times d} \notag \\
-    $$
-
-+ **Towards a Unified View of Parameter-Efficient Transfer Learning.**
-
-    *Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-Kirkpatrick, Graham Neubig.* **ICLR, 2022.** [[pdf](./documents/2021.Towards%20a%20Unified%20View%20of%20Parameter-Efficient%20Transfer%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2110.04366)] [[project](https://github.com/jxhe/unify-parameter-efficient-tuning)]
-
-    将 Adapter、Prefix Tuning 和 LoRA 三种方法统一到同一视角下进行讨论，并提出了几种变体方法。
-
-+ **QLoRA: Efficient Finetuning of Quantized LLMs.**
-
-    *Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer.* **arxiv, 2023.** [[pdf](./documents/2023.QLoRA.pdf)] [[arxiv](https://arxiv.org/abs/2305.14314)] [[project](https://github.com/artidoro/qlora)]
-
-    在 LoRA 的基础上通过量化、分页等方法进一步优化资源占用。
-
-+ **Full Parameter Fine-tuning for Large Language Models with Limited Resources.**
-
-    *Kai Lv, Yuqing Yang, Tengxiao Liu, Qinghui Gao, Qipeng Guo, Xipeng Qiu.* **arxiv, 2023.** [[pdf](./documents/2023.Full%20Parameter%20Fine-tuning%20for%20Large%20Language%20Models%20with%20Limited%20Resources.pdf)] [[arxiv](https://arxiv.org/abs/2306.09782)] [[project](https://github.com/OpenLMLab/LOMO)]
-
-    在有限资源的前提下全参数微调语言模型。
-
-
-相关项目中这两个库封装了一些常用的参数高效微调方法，peft 库的实现已经比较全面，并且针对 RLHF 阶段做了一些支持。
-
-+ **PEFT: State-of-the-art Parameter-Efficient Fine-Tuning.** [[github](https://github.com/huggingface/peft)]
-
-+ **LLM-Adapters.** [[arxiv](https://arxiv.org/abs/2304.01933)] [[github](https://github.com/AGI-Edgerunners/LLM-Adapters)]
 
 
 ### 指令微调（instruction tuning）
