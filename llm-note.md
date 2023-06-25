@@ -236,7 +236,11 @@
 
 + **ChatGLM-6B.** [[blog](https://chatglm.cn/blog)] [[github](https://github.com/THUDM/ChatGLM-6B)]
 
-    清华/智谱开源的中文大模型，及微调训练工具库。
+    清华/智谱开源的中/英双语模型，及微调训练工具库。
+
++ **ChatGLM2-6B.** [[github](https://github.com/THUDM/ChatGLM2-6B)]
+
+    改进了基座模型，支持更长的上下文（32K，对话阶段使用 8K 长度的上下文训练）。
 
 +  **ChatGLM-6B tuning tutorial.** [[slides](./documents/ChatGLM-tuning-tutorial.pdf)] [[video](https://www.bilibili.com/video/BV1fd4y1Z7Y5)]
 
