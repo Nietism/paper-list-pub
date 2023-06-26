@@ -174,17 +174,36 @@
 
 ### 高效的训练/微调/推理方法（efficient tuning/inferring）
 
-在模型的训练过程中，对显存的占用主要有这么几块：模型参数、中间激活值、梯度、优化器状态。
+在模型的训练过程中，对显存的占用主要有这么几块：模型参数、中间激活值、梯度、优化器状态、K-V 缓存。
+
+对模型来说，每 1B 参数在 fp32 精度下占 4G 显存，在 fp16 精度下占 2G 显存，CUDA 驱动会占用 1.3G 左右，例如 6B 的 ChatGLM 模型以 fp16 精度加载到一张 GPU 上之后，占用在 13G 左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的 AdamW 优化算法需要存储每个可学习参数的一阶动量和二阶动量，那么在全参数微调的情况下，还需要再占用 2 倍左右的显存。
 
 对于训练过程中所占用显存的这几部分构成，分别可以引出一系列方法：
 + 参数的精度：混合精度训练、量化等方法。
 + 模型加载：模型并行。
-+ 训练过程中可学习的参数量：参数高效的微调方法如 LoRA 和 prefix tuning 等。
-+ 梯度和优化器状态：换用不同的优化算法，如 Sophia 和 LOMO 等。
++ 梯度和优化器状态：
+    + 限制训练过程中可学习的参数量，从而节约这部分所占的显存，有参数高效的微调方法如 LoRA 和 prefix tuning 等；
+    + 换用不同的优化算法，如 Sophia 和 LOMO 等。
+
+#### 量化（quantization）
+
+模型参数的精度主要有这几种：
++ Float32 (FP32) ：标准的 IEEE 32 位浮点表示，指数 8 位，尾数 23 位，符号 1 位，可以表示大范围的浮点数。大部分硬件都支持 FP32 运算指令。
++ Float16 (FP16) ：指数 5 位，尾数 10 位，符号 1 位。FP16 数字的数值范围远低于 FP32，存在上溢和下溢风险。
++ Bfloat16 (BF16) ：指数 8 位（与 FP32 相同），尾数 7 位，符号 1 位。这意味着 BF16 可以保留与 FP32 相同的动态范围。但是相对于 FP16，损失了 3 位精度。因此，在使用 BF16 精度时，大数值绝对没有问题，但是精度会比 FP16 差。
+
+量化技术通过降低参数精度来减少显存消耗，一般在推理部署时使用量化技术，但现在也有很多支持在训练时使用量化技术的方法，如 QLoRA 等，transformers 库内也做了 4-bit 量化和 8-bit 量化的支持。
+
++ **QLoRA: Efficient Finetuning of Quantized LLMs.**
+
+    *Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer.* **arxiv, 2023.** [[pdf](./documents/2023.QLoRA.pdf)] [[arxiv](https://arxiv.org/abs/2305.14314)] [[project](https://github.com/artidoro/qlora)]
+
+    在 LoRA 的基础上通过量化（4-bit）、分页等方法进一步优化资源占用。
+
 
 #### 参数高效的微调方法（parameter-efficient fine-tuning）
 
-对模型来说，每 1B 参数在 fp32 精度下占 4G 显存，在 fp16 精度下占 2G 显存，CUDA 驱动会占用 1.3G 左右，例如 6B 的 ChatGLM 模型以 fp16 精度加载到一张 GPU 上之后，占用在 13G 左右，之后也会随着处理序列的长短而动态变化。而如果要微调模型，还需要额外的显存来存储梯度、优化器状态等，比如常用的 Adam 系列优化器需要存储每个可学习参数的一阶动量和二阶动量，那么在全参数微调的情况下，还需要再占用 2 倍左右的显存。参数高效的微调方法大幅减少了可学习参数，微调的参数量只占原模型参数量的 0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
+参数高效的微调方法通过大幅减少可学习参数，从而节约梯度和优化器状态所占用的显存，微调的参数量只占原模型参数量的 0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
 
 + **LoRA: Low-Rank Adaptation of Large Language Models.**
 
@@ -203,12 +222,6 @@
 
     将 Adapter、Prefix Tuning 和 LoRA 三种方法统一到同一视角下进行讨论，并提出了几种变体方法。
 
-+ **QLoRA: Efficient Finetuning of Quantized LLMs.**
-
-    *Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer.* **arxiv, 2023.** [[pdf](./documents/2023.QLoRA.pdf)] [[arxiv](https://arxiv.org/abs/2305.14314)] [[project](https://github.com/artidoro/qlora)]
-
-    在 LoRA 的基础上通过量化、分页等方法进一步优化资源占用。
-
 
 相关项目中这两个库封装了一些常用的参数高效微调方法，peft 库的实现已经比较全面，并且针对 RLHF 阶段做了一些支持。
 
@@ -218,6 +231,8 @@
 
 
 #### 优化器（optimizer）
+
+同样可以通过换用一些不需要缓存太多变量的优化算法，节约梯度和优化器状态所占用的显存。
 
 + **Full Parameter Fine-tuning for Large Language Models with Limited Resources.**
 
@@ -540,7 +555,11 @@ MOSS 的对话数据的结构比较清晰：
 
 ## Benchmarks ⚖️
 
-对于不同领域、不同模型，比较难给出一个系统、公平的评价。不能简单测试几个例子就下论断说好坏，或者以此为依据宣称“达到了 xxx 的 xx% 水平”。
+对于不同领域、不同模型，比较难给出一个系统、公平的评价。不能简单测试几个例子就下论断说好坏，或者以此为依据宣称“达到了 xxx 的 
+xx% 水平”。
+
+
+（2023.06.26）
 
 + **BIG-bench.**
 
