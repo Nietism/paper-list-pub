@@ -286,7 +286,7 @@
 
      BAAI 发布的系列模型，支持中/英双语。
 
-+ **Baichuan-7B.** [[github](https://github.com/baichuan-inc/baichuan-7B)] [[huggingface](https://huggingface.co/baichuan-inc/baichuan-7B)]
++ **baichuan-7B.** [[github](https://github.com/baichuan-inc/baichuan-7B)] [[huggingface](https://huggingface.co/baichuan-inc/baichuan-7B)]
 
      百川智能发布的大规模预训练模型。在约 1.2 万亿 tokens 上训练的 7B 参数模型，支持中英双语，上下文窗口长度为 4096.
 
@@ -558,9 +558,6 @@ MOSS 的对话数据的结构比较清晰：
 对于不同领域、不同模型，比较难给出一个系统、公平的评价。不能简单测试几个例子就下论断说好坏，或者以此为依据宣称“达到了 xxx 的 
 xx% 水平”。
 
-
-（2023.06.26）
-
 + **BIG-bench.**
 
     *hundreds of authors.* [[arxiv](https://arxiv.org/abs/2305.11000)] [[github](https://github.com/google/BIG-bench)]
@@ -576,3 +573,26 @@ xx% 水平”。
     *Language Intelligence and Technology Group, SJTU.* [[github](https://github.com/SJTU-LIT/ceval)] [[official website](https://cevalbenchmark.com/)] 
 
     C-Eval 是全面的中文基础模型评估套件，涵盖了 52 个不同学科的 13948 个多项选择题，分为四个难度级别。
+
+    提供的评测教程也值得阅读：https://github.com/SJTU-LIT/ceval/blob/main/resources/tutorial.md
+
+
+### chit-chat
+
+（2023.06.26）
+
+以下分别是 ChatGLM2-6B 和 baichuan-7B 在 C-Eval 测试集上报告的性能表现。
+
+<p align="center">
+<img src="./notes/pics/chatglm2-0626.png" width="60%"/>
+</p>
+
+<p align="center">
+<img src="./notes/pics/baichuan-0626.png" width="65%"/>
+</p>
+
+可以看到，在 ChatGLM2 的评测结果中，对不同阶段的模型采用了不同的输出来诱发模型输出，基座模型用 few-shot prompting 的方式测试，用对话数据做指令微调 + RLHF 过的 chat 模型则用 zero-shot CoT 的方式测试。而在 baichuan-7B 报告的测试中似乎不做区分，不论是基座模型还是微调模型均采用 5-shot prompting 的方式得出结果。
+
+考虑到对齐税问题，指令微调和 RLHF 的对齐过程可能会伤害模型的上下文学习能力，对不同阶段的模型给同一种输入会对性能有影响。在两张图中也可以看出，不同方法复现的 ChatGLM-6B 的性能有较大差距。
+
+另外，最近在模型的中文能力方面的评测经常用 C-Eval 和 GAOKAO 这两个数据集，但是这两个数据集的测试都是选择题，即使随机猜或者全选同一选项也能有一定的准确率。GAOKAO-bench 中有主观题，但需要提交之后由组织者组织人工评测。C-Eval 则全部都是不同学科领域的四选一选择题，这意味着 baseline 就应当是 25 分，从 leadboard 上看（2023/06/26版本），Chinese Alpaca-13B 的均分只有 30.9，略强于随机猜测的 25 分。
