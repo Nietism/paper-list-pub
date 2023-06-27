@@ -243,7 +243,7 @@
 
 + **The Future is not One-dimensional: Complex Event Schema Induction by Graph Modeling for Event Prediction.**
 
-    *Manling Li, Sha Li, Zhenhailong Wang, Lifu Huang, Kyunghyun Cho, Heng Ji, Jiawei Han, Clare Voss.* **EMNLP, 2021.** [[pdf](./documents/2021.Complex%20Event%20Schema%20Induction%20by%20Graph%20Modeling%20for%20Event%20Prediction.pdf)] [[acl](https://aclanthology.org/2021.emnlp-main.422/)] [[arxiv](https://arxiv.org/abs/2104.06344)] [[project](https://github.com/limanling/temporal-graph-schema)] [[note](./notes/2021.The%20Future%20is%20not%20One-dimensional-Complex%20Event%20Schema%20Induction%20by%20Graph%20Modeling%20for%20Event%20Prediction.md)]
+    *Manling Li, Sha Li, Zhenhailong Wang, Lifu Huang, Kyunghyun Cho, Heng Ji, Jiawei Han, Clare Voss.* **EMNLP, 2021.** [[pdf](./documents/2021.Complex%20Event%20Schema%20Induction%20by%20Graph%20Modeling%20for%20Event%20Prediction.pdf)] [[acl](https://aclanthology.org/2021.emnlp-main.422/)] [[arxiv](https://arxiv.org/abs/2104.06344)] [[project](https://github.com/limanling/temporal-graph-schema)] [[note](./notes/2021.The-Future-is-not-One-dimensional.md)]
 
     (no codes, only data)
 
@@ -253,7 +253,7 @@
 
 + **Harvesting Event Schemas from Large Language Models.**
 
-    *Jialong Tang, Hongyu Lin, Zhuoqun Li, Yaojie Lu, Xianpei Han, Le Sun.* **arxiv, 2023.** [[pdf](./documents/2023.Harvesting%20Event%20Schemas%20from%20Large%20Language%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2305.07280)] [[project](https://github.com/TangJiaLong/Event-Schema-Harvester)] [[note](./notes/2023.Harvesting%20Event%20Schemas%20from%20Large%20Language%20Models.md)]
+    *Jialong Tang, Hongyu Lin, Zhuoqun Li, Yaojie Lu, Xianpei Han, Le Sun.* **arxiv, 2023.** [[pdf](./documents/2023.Harvesting%20Event%20Schemas%20from%20Large%20Language%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2305.07280)] [[project](https://github.com/TangJiaLong/Event-Schema-Harvester)] [[note](./notes/2023.Harvesting-Event-Schemas-from-Large-Language-Models.md)]
 
 
 ### Language Aquisition 📚
