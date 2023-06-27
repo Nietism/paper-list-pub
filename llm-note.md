@@ -303,6 +303,10 @@
 
      百川智能发布的大规模预训练模型。在约 1.2 万亿 tokens 上训练的 7B 参数模型，支持中英双语，上下文窗口长度为 4096.
 
++ **值得关注的对中文支持较好的开源模型.** [[github](https://github.com/ninehills/blog/issues/94)]
+
+    [@ninehills](https://github.com/ninehills) 整理的一些支持中文的开源模型。
+
 
 ## 相关项目
 
