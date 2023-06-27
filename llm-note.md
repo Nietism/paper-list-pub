@@ -11,7 +11,7 @@
 </head>
 
 
-## paper list & repo 📜
+# paper list & repo 📜
 
 + **Awesome-LLM.**
 
@@ -30,7 +30,7 @@
     整理了 RLHF 相关的研究文章、数据、博客。
 
 
-## 相关文章和博客 📰
+# 相关文章和博客 📰
 
 + **拆解追溯 GPT-3.5 各项能力的起源.**
 
@@ -183,9 +183,9 @@
 
 
 
-## 开源项目和相关资源 🍔
+# 开源项目和相关资源 🍔
 
-### 高效的训练/微调/推理方法（efficient tuning / inferring）
+## 高效的训练/微调/推理方法（efficient tuning / inferring）
 
 在模型的训练过程中，对显存的占用主要有这么几块：模型参数、中间激活值、梯度、优化器状态、K-V 缓存。
 
@@ -198,7 +198,7 @@
     + 限制训练过程中可学习的参数量，从而节约这部分所占的显存，有参数高效的微调方法如 LoRA 和 prefix tuning 等；
     + 换用不同的优化算法，如 Sophia 和 LOMO 等。
 
-#### 量化（quantization）
+### 量化（quantization）
 
 模型参数的精度主要有这几种：
 + Float32 (FP32) ：标准的 IEEE 32 位浮点表示，指数 8 位，尾数 23 位，符号 1 位，可以表示大范围的浮点数。大部分硬件都支持 FP32 运算指令。
@@ -214,7 +214,7 @@
     在 LoRA 的基础上通过量化（4-bit）、分页等方法进一步优化资源占用。
 
 
-#### 参数高效的微调方法（parameter-efficient fine-tuning）
+### 参数高效的微调方法（parameter-efficient fine-tuning）
 
 参数高效的微调方法通过大幅减少可学习参数，从而节约梯度和优化器状态所占用的显存，微调的参数量只占原模型参数量的 0.01%~1%（视设置而定，也可能更多），可以大幅节省显存。
 
@@ -243,7 +243,7 @@
 + **LLM-Adapters.** [[arxiv](https://arxiv.org/abs/2304.01933)] [[github](https://github.com/AGI-Edgerunners/LLM-Adapters)]
 
 
-#### 优化器（optimizer）
+### 优化器（optimizer）
 
 同样可以通过换用一些不需要缓存太多变量的优化算法，节约梯度和优化器状态所占用的显存。
 
@@ -253,7 +253,7 @@
 
     在有限资源的前提下全参数微调语言模型。对 SGD 进行了优化，将梯度计算和参数更新合并到一步中,减少需要缓存的参数量，进一步减少显存占用，从而实现对模型全部参数的微调。
 
-### foundation model / tuned model
+## foundation model / tuned model
 
 + **Flan-T5.** [[arxiv](https://arxiv.org/abs/2210.11416)] [[github](https://github.com/google-research/t5x/blob/main/docs/models.md#flan-t5-checkpoints)] [[huggingface](https://huggingface.co/docs/transformers/model_doc/flan-t5)]
 
@@ -304,7 +304,7 @@
      百川智能发布的大规模预训练模型。在约 1.2 万亿 tokens 上训练的 7B 参数模型，支持中英双语，上下文窗口长度为 4096.
 
 
-### 相关项目
+## 相关项目
 
 + **Alpaca-LoRA.** [[github](https://github.com/tloen/alpaca-lora)]
 
@@ -339,7 +339,7 @@
     👍 A very comprehensive codebase.
 
 
-### 指令微调（instruction tuning）
+## 指令微调（instruction tuning）
 
 指令微调的数据集通常用两种方法产出：
 
@@ -474,7 +474,7 @@ MOSS 的对话数据的结构比较清晰：
 
 
 
-### 基于人类反馈的强化学习（RLHF）
+## 基于人类反馈的强化学习（RLHF）
 
 <p align="center">
 <img src="./notes/pics/coati-stage-3.jpeg" width="90%"/>
@@ -517,7 +517,7 @@ MOSS 的对话数据的结构比较清晰：
 
 
 
-## 在一些在具体领域的应用 🚋
+# 在一些在具体领域的应用 🚋
 
 [Awesome-LLM 的主页](https://github.com/MLNLP-World/Awesome-LLM)中整理得更加详尽全面。
 
@@ -541,7 +541,7 @@ MOSS 的对话数据的结构比较清晰：
 
     Flan-T5 (11B) as backbone.
 
-## 多模态领域 🎞
+# 多模态领域 🎞
 
 (TODO)
 
@@ -566,7 +566,7 @@ MOSS 的对话数据的结构比较清晰：
 
 + ...
 
-## Benchmarks ⚖️
+# Benchmarks ⚖️
 
 对于不同领域、不同模型，比较难给出一个系统、公平的评价。不能简单测试几个例子就下论断说好坏，或者以此为依据宣称“达到了 xxx 的 
 xx% 水平”。
@@ -591,7 +591,7 @@ xx% 水平”。
     Leaderboard: https://cevalbenchmark.com/static/leaderboard.html
 
 
-### chit-chat
+## chit-chat
 
 （2023.06.26）
 
