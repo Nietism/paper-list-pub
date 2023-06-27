@@ -588,6 +588,7 @@ xx% 水平”。
     C-Eval 是全面的中文基础模型评估套件，涵盖了 52 个不同学科的 13948 个多项选择题，分为四个难度级别。
 
     提供的评测教程也值得阅读：https://github.com/SJTU-LIT/ceval/blob/main/resources/tutorial.md
+
     Leaderboard: https://cevalbenchmark.com/static/leaderboard.html
 
 
