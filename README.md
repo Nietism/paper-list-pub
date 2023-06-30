@@ -255,6 +255,10 @@
 
     *Jialong Tang, Hongyu Lin, Zhuoqun Li, Yaojie Lu, Xianpei Han, Le Sun.* **arxiv, 2023.** [[pdf](./documents/2023.Harvesting%20Event%20Schemas%20from%20Large%20Language%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2305.07280)] [[project](https://github.com/TangJiaLong/Event-Schema-Harvester)] [[note](./notes/2023.Harvesting-Event-Schemas-from-Large-Language-Models.md)]
 
++ **Open-Domain Hierarchical Event Schema Induction by Incremental Prompting and Verification.**
+
+    *Sha Li, Ruining Zhao, Manling Li, Heng Ji, Chris Callison-Burch and Jiawei Han.* **ACL, 2023.** [[pdf](./documents/2023.Open-Domain%20Hierarchical%20Event%20Schema%20Induction%20by%20Incremental%20Prompting%20and%20Verification.pdf)] [[copy form upenn](https://www.cis.upenn.edu/~ccb/publications/creating-event-schema-with-llms.pdf)] [[copy form uiuc](https://blender.cs.illinois.edu/paper/hierarchicalschema2023.pdf)]
+
 
 ### Language Aquisition 📚
 
