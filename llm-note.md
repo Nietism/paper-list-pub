@@ -37,7 +37,7 @@
     *符尧.* **notion, 2022.** [[notion](https://yaofu.notion.site/GPT-3-5-360081d91ec245f29029d37b54573756)] 
 
 
-+ **June 2023, A Stage Review of Instruction Tuning.**
++ **A Stage Review of Instruction Tuning.**
 
     *符尧.* **notion, 2023.** [[notion](https://yaofu.notion.site/June-2023-A-Stage-Review-of-Instruction-Tuning-f59dbfc36e2d4e12a33443bd6b2012c2#d6dc460e27774384914255783ce3e725)] 
 
