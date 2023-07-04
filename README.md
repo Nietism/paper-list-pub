@@ -227,8 +227,18 @@
 
     Flan-T5 (11B) as backbone.
 
++ **SPEECH: Structured Prediction with Energy-Based Event-Centric Hyperspheres.**
 
-### Event Relation Identification (Extraction/Classification) 🌱
+    *Shumin Deng, Shengyu Mao, Ningyu Zhang, Bryan Hooi.* **ACL, 2023.** [[pdf](./documents/2023.SPEECH-Structured-Prediction-with-Energy-Based-Event-Centric-Hyperspheres.pdf)] [[arxiv](https://arxiv.org/abs/2305.13617)] [[slides](./documents/ACL2023%40Slides_Speech.pdf)] [[project](https://github.com/zjunlp/SPEECH)]
+
+    SPEECH is proposed to address event-centric structured prediction with energy-based hyperspheres.SPEECH models complex dependency among event structured components with energy-based modeling, and represents event classes with simple but effective hyperspheres.
+
+
+### Event Relation Extraction (Identification or Classification) 🌱
+
++ **Challenges of Adding Causation to Richer Event Descriptions.**
+
+    *Rei Ikuta, Will Styler, Mariah Hamang, Tim O’Gorman, Martha Palmer.* **Second Workshop on EVENTS: Definition, Detection, Coreference, and Representation, 2014.** [[pdf](./documents/2014.Challenges%20of%20Adding%20Causation%20to%20Richer%20Event%20Descriptions.pdf)] [[acl](https://aclanthology.org/W14-2903/)]
 
 + **Modeling Document-level Causal Structures for Event Causal Relation Identification.**
 
@@ -237,6 +247,10 @@
 + **Graph Convolutional Networks for Event Causality Identification with Rich Document-level Structures.**
 
     *Minh Tran Phu, Thien Huu Nguyen.* **NAACL, 2021.** [[pdf](./documents/2021.Graph%20Convolutional%20Networks%20for%20Event%20Causality%20Identification%20with%20Rich%20Document-level%20Structures.pdf)] [[acl](https://aclanthology.org/2021.naacl-main.273/)]
+
++ **MAVEN-ERE: A Unified Large-scale Dataset for Event Coreference, Temporal, Causal, and Subevent Relation Extraction.**
+
+    *Xiaozhi Wang, Yulin Chen, Ning Ding, Hao Peng, Zimu Wang, Yankai Lin, Xu Han, Lei Hou, Juanzi Li, Zhiyuan Liu, Peng Li, Jie Zhou.* **EMNLP, 2022.** [[pdf](./documents/2022.MAVEN-ERE.pdf)] [[acl](https://aclanthology.org/2021.naacl-main.273/)] [[arxiv](https://arxiv.org/abs/2211.07342)] [[projec t](https://github.com/THU-KEG/MAVEN-ERE)]
 
 
 ### Event Type Induction / Event Schema Induction 🚲
