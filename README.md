@@ -231,7 +231,7 @@
 
     *Shumin Deng, Shengyu Mao, Ningyu Zhang, Bryan Hooi.* **ACL, 2023.** [[pdf](./documents/2023.SPEECH-Structured-Prediction-with-Energy-Based-Event-Centric-Hyperspheres.pdf)] [[arxiv](https://arxiv.org/abs/2305.13617)] [[slides](./documents/ACL2023%40Slides_Speech.pdf)] [[project](https://github.com/zjunlp/SPEECH)]
 
-    SPEECH is proposed to address event-centric structured prediction with energy-based hyperspheres.SPEECH models complex dependency among event structured components with energy-based modeling, and represents event classes with simple but effective hyperspheres.
+    SPEECH is proposed to address event-centric structured prediction with energy-based hyperspheres. SPEECH models complex dependency among event structured components with energy-based modeling, and represents event classes with simple but effective hyperspheres.
 
 
 ### Event Relation Extraction (Identification or Classification) 🌱
