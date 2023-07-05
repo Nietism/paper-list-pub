@@ -350,6 +350,8 @@
 
 ## 指令微调（instruction tuning）
 
+[[link](./notes/instruction-tuning-in-action.md)]
+
 指令微调的数据集通常用两种方法产出：
 
 1. 格式化已有数据集。将传统的 NLP 数据集格式调整后，用于指令微调。可以通过 ChatGPT/GPT-4/Claude 等现有的表现较好的模型生成 instruciton。
