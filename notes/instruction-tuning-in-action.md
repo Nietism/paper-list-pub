@@ -1,18 +1,18 @@
-# instruction tuning in action🚋
+# Instruction tuning in action🚋
 
-## efficient fine-tuning
+## 1. Efficient fine-tuning
 
-### why?
-
-
-### how?
+### 1.1 Why?
 
 
-
-## data in instruction tuning
-
-
-## decoding
+### 1.2 How?
 
 
-## takeaways
+
+## 2. Data in instruction tuning
+
+
+## 3. Decoding
+
+
+## 4. Takeaways
