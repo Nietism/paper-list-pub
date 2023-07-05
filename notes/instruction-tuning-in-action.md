@@ -1,4 +1,4 @@
-# instruction btuning in action🚋
+# instruction tuning in action🚋
 
 ## efficient fine-tuning
 
