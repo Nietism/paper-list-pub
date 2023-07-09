@@ -34,8 +34,13 @@
 
 + **拆解追溯 GPT-3.5 各项能力的起源.**
 
-    *符尧.* **notion, 2022.** [[notion](https://yaofu.notion.site/GPT-3-5-360081d91ec245f29029d37b54573756)] 
+    *符尧.* **notion, 2022.** [[notion](https://yaofu.notion.site/GPT-3-5-360081d91ec245f29029d37b54573756)]
 
++ **复杂推理：大语言模型的北极星能力.**
+
+    *符尧.* **notion, 2023.** [[notion](https://yaofu.notion.site/6dafe3f8d11445ca9dcf8a2ca1c5b199#1e2ecd5a92e741f9bf4cb347bcacdc2e)]
+
+    如何让大语言模型拥有强大的复杂推理能力?
 
 + **A Stage Review of Instruction Tuning.**
 
@@ -198,7 +203,7 @@
 
 对于训练过程中所占用显存的这几部分构成，分别可以引出一系列方法：
 + 参数的精度：混合精度训练、量化等方法。
-+ 模型加载：模型并行。
++ 模型加载：模型并行，deepspeed 中也提供了 ZeRO stage 1-3 等去冗余方法。
 + 梯度和优化器状态：
     + 限制训练过程中可学习的参数量，从而节约这部分所占的显存，有参数高效的微调方法如 LoRA 和 prefix tuning 等；
     + 换用不同的优化算法，如 Sophia 和 LOMO 等。
@@ -307,6 +312,10 @@
 + **baichuan-7B.** [[github](https://github.com/baichuan-inc/baichuan-7B)] [[huggingface](https://huggingface.co/baichuan-inc/baichuan-7B)]
 
      百川智能发布的大规模预训练模型。在约 1.2 万亿 tokens 上训练的 7B 参数模型，支持中英双语，上下文窗口长度为 4096.
+
++ **InternLM.** [[github](https://github.com/InternLM/InternLM)] [[huggingface](https://huggingface.co/internlm)]
+
+     Released weights of InternLM-7B, InternLM-Chat-7B, InternLM-Chat-7B-8k.
 
 + **值得关注的对中文支持较好的开源模型.** [[github](https://github.com/ninehills/blog/issues/94)]
 
@@ -577,10 +586,14 @@ MOSS 的对话数据的结构比较清晰：
 
 + ...
 
-# Benchmarks ⚖️
+# Evaluation & Benchmarks ⚖️
 
 对于不同领域、不同模型，比较难给出一个系统、公平的评价。不能简单测试几个例子就下论断说好坏，或者以此为依据宣称“达到了 xxx 的 
 xx% 水平”。
+
++ **A Survey on Evaluation of Large Language Models.**
+
+    *Yupeng Chang, Xu Wang, Jindong Wang, Yuan Wu, Kaijie Zhu, Hao Chen, Linyi Yang, Xiaoyuan Yi, Cunxiang Wang, Yidong Wang, Wei Ye, Yue Zhang, Yi Chang, Philip S. Yu, Qiang Yang, Xing Xie.* **arxiv, 2023.** [[pdf](./documents/2023.A%20Survey%20on%20Evaluation%20of%20Large%20Language%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2307.03109)] [[github](https://github.com/MLGroupJLU/LLM-eval-survey)]
 
 + **BIG-bench.**
 
