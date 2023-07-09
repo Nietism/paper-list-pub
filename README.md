@@ -326,6 +326,10 @@
 
 ## Courses and Tutorials / Tools 🍔
 
++ **Retrieval-based Language Models and Applications.**
+
+    *Akari Asai, Sewon Min, Zexuan Zhong, Danqi Chen.* **ACL 2023 Tutorial.** [[official website](https://acl2023-retrieval-lm.github.io/)]
+
 + **Introduction to Large Language Models.**
 
     *Qi Zhang, Tao Gui, Rui Zheng, Xuanjing Huang.* **online resource, 2023.** [[official website](https://intro-llm.github.io/)] [[github](https://github.com/intro-llm/intro-llm.github.io)]
