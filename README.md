@@ -250,7 +250,7 @@
 
 + **MAVEN-ERE: A Unified Large-scale Dataset for Event Coreference, Temporal, Causal, and Subevent Relation Extraction.**
 
-    *Xiaozhi Wang, Yulin Chen, Ning Ding, Hao Peng, Zimu Wang, Yankai Lin, Xu Han, Lei Hou, Juanzi Li, Zhiyuan Liu, Peng Li, Jie Zhou.* **EMNLP, 2022.** [[pdf](./documents/2022.MAVEN-ERE.pdf)] [[acl](https://aclanthology.org/2021.naacl-main.273/)] [[arxiv](https://arxiv.org/abs/2211.07342)] [[projec t](https://github.com/THU-KEG/MAVEN-ERE)]
+    *Xiaozhi Wang, Yulin Chen, Ning Ding, Hao Peng, Zimu Wang, Yankai Lin, Xu Han, Lei Hou, Juanzi Li, Zhiyuan Liu, Peng Li, Jie Zhou.* **EMNLP, 2022.** [[pdf](./documents/2022.MAVEN-ERE.pdf)] [[acl](https://aclanthology.org/2022.emnlp-main.60/)] [[arxiv](https://arxiv.org/abs/2211.07342)] [[projec t](https://github.com/THU-KEG/MAVEN-ERE)]
 
 
 ### Event Type Induction / Event Schema Induction 🚲
