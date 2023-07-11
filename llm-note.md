@@ -203,10 +203,10 @@
 
 对于训练过程中所占用显存的这几部分构成，分别可以引出一系列方法：
 + 参数的精度：混合精度训练、量化等方法。
-+ 模型加载：模型并行，deepspeed 中也提供了 ZeRO stage 1-3 等去冗余方法。
++ 模型加载：模型并行，如 deepspeed 提供的 ZeRO stage 1-3 等去冗余方法。
 + 梯度和优化器状态：
     + 限制训练过程中可学习的参数量，从而节约这部分所占的显存，有参数高效的微调方法如 LoRA 和 prefix tuning 等；
-    + 换用不同的优化算法，如 Sophia 和 LOMO 等。
+    + 换用不同的优化算法，从而减少训练过程中优化器状态所占用的显存，如 Sophia、MeZO、LOMO 等。
 
 ### 量化（quantization）
 
@@ -309,9 +309,13 @@
 
      BAAI 发布的系列模型，支持中/英双语。
 
-+ **baichuan-7B.** [[github](https://github.com/baichuan-inc/baichuan-7B)] [[huggingface](https://huggingface.co/baichuan-inc/baichuan-7B)]
++ **Baichuan-7B.** [[github](https://github.com/baichuan-inc/baichuan-7B)] [[huggingface](https://huggingface.co/baichuan-inc/baichuan-7B)]
 
      百川智能发布的大规模预训练模型。在约 1.2 万亿 tokens 上训练的 7B 参数模型，支持中英双语，上下文窗口长度为 4096.
+
++ **Baichuan-13B.** [[github](https://github.com/baichuan-inc/Baichuan-13B)]
+
+     同时发布了 13B 模型的基座版本和对齐版本。
 
 + **InternLM.** [[github](https://github.com/InternLM/InternLM)] [[huggingface](https://huggingface.co/internlm)]
 
