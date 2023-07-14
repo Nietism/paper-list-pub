@@ -545,6 +545,11 @@ MOSS 的对话数据的结构比较清晰：
 
 [Awesome-LLM 的主页](https://github.com/MLNLP-World/Awesome-LLM)中整理得更加详尽全面。
 
++ **ChatLaw.**
+
+    *Jiaxi Cui, Zongjian Li, Yang Yan, Bohua Chen, Li Yuan.* [[pdf](./documents/2023.ChatLaw.pdf)] [[arxiv](https://arxiv.org/abs/2306.16092)] [[github](https://github.com/PKU-YuanGroup/ChatLaw/)]
+
+
 + **本草: 基于中文医学知识的LLaMA微调模型. / BenTsao (original name: HuaTuo): Tuning LLaMA Model With Chinese Medical Instructions.**
 
     *Health Intelligence Group, HIT-SCIR.* [[arxiv](https://arxiv.org/abs/2304.06975)] [[project](https://github.com/SCIR-HI/Huatuo-Llama-Med-Chinese)]
@@ -553,17 +558,19 @@ MOSS 的对话数据的结构比较清晰：
 
     基于相同的数据，也训练并开源了医疗版本的 ChatGLM 模型: [ChatGLM-6B-Med](https://github.com/SCIR-HI/Med-ChatGLM)
 
-+ **Zero-Shot Information Extraction via Chatting with ChatGPT.**
-
-    *Xiang Wei, Xingyu Cui, Ning Cheng, Xiaobin Wang, Xin Zhang, Shen Huang, Pengjun Xie, Jinan Xu, Yufeng Chen, Meishan Zhang, Yong Jiang, Wenjuan Han.* **arxiv, 2023.** [[pdf](./documents/2023.Zero-Shot%20Information%20Extraction%20via%20Chatting%20with%20ChatGPT.pdf)] [[arxiv](https://arxiv.org/abs/2302.10205)]
-
-    This paper transforms the zero-shot IE task into a multi-turn QA problem with a two-stage framework named ChatIE (based-on ChatGPT). Experiments are conducted on RE, NER and EE tasks across two languages (English and Chinese).
 
 + **InstructUIE: Multi-task Instruction Tuning for Unified Information Extraction.**
 
     *Xiao Wang, Weikang Zhou, Can Zu, Han Xia, Tianze Chen, Yuansen Zhang, Rui Zheng, Junjie Ye, Qi Zhang, Tao Gui, Jihua Kang, Jingsheng Yang, Siyuan Li, Chunsai Du.* **arxiv, 2023.** [[pdf](./documents/2023.InstructUIE.pdf)] [[arxiv](https://arxiv.org/abs/2304.08085)] [[project](https://github.com/BeyonderXX/InstructUIE)]
 
     Flan-T5 (11B) as backbone.
+
++ **Zero-Shot Information Extraction via Chatting with ChatGPT.**
+
+    *Xiang Wei, Xingyu Cui, Ning Cheng, Xiaobin Wang, Xin Zhang, Shen Huang, Pengjun Xie, Jinan Xu, Yufeng Chen, Meishan Zhang, Yong Jiang, Wenjuan Han.* **arxiv, 2023.** [[pdf](./documents/2023.Zero-Shot%20Information%20Extraction%20via%20Chatting%20with%20ChatGPT.pdf)] [[arxiv](https://arxiv.org/abs/2302.10205)]
+
+    This paper transforms the zero-shot IE task into a multi-turn QA problem with a two-stage framework named ChatIE (based-on ChatGPT). Experiments are conducted on RE, NER and EE tasks across two languages (English and Chinese).
+
 
 # 多模态领域 🎞
 
