@@ -33,9 +33,10 @@
 
 ### 对话微调 Conversation tuning
 
+#### 数据格式
 如果下游任务场景中需要模型的多轮对话能力的话，在指令微调、人类偏好对齐的过程中就应当有部分的多轮对话数据。
 
-具体的数据组织形式和拼接方法可以自己设定，也可以参考现有的比如 ChatGLM 和 MOSS 的方案。比如 ChatGLM 是用“问：……答：……” 的形式对多轮对话进行拼接的（中文冒号），相应部分的代码在 ChatGLM-6B 代码仓库的 `main.py` 中的 `preprocess_function_train` 和 `preprocess_function_eval` 方法中有：
+具体的数据组织形式和拼接方法可以自己设定，也可以参考现有的比如 ChatGLM 和 MOSS 的方案。比如 ChatGLM 是用 ` 问：……答：…… ` 的形式对多轮对话进行拼接的（中文冒号），相应部分的代码在 ChatGLM-6B 代码仓库的 `main.py` 中的 `preprocess_function_train` 和 `preprocess_function_eval` 方法中有：
 ```python
 …
     if history_column is None:
@@ -53,7 +54,7 @@
 …
 ```
 
-MOSS 则是通过加入一些标记采取“<|Human|>:  ……<eoh>\n……<|MOSS|>:  ……<eom>” 的方式拼接，比如一条数据样例是这样的：
+MOSS 则是通过加入一些标记采取 `<|Human|>:  ……<eoh>\n……<|MOSS|>:  ……<eom>` 的方式拼接，比如一条数据样例是这样的：
 ```json
 {
     "conversation_id": "14",
@@ -167,7 +168,77 @@ while True:
 …
 ```
 
-这两种多轮对话的组织方式是有所不同的：对于一个 $Q_1, A_1; Q_2, A_2; Q3, A3$ 的对话，ChatGLM 采用的构造方式会将这一个 session 拆解成三条训练样本：$Q_1 \rightarrow A_1$ 和 $Q_1, A_1; Q_2 \rightarrow A_2$ 和 $Q_1, A_1; Q_2, A_2; Q_3 \rightarrow A_3$。
+#### 样本的组织
+
+对于单轮对话（一问一答的形式）来说，可以将指令（instruction）部分和问题部分（input）拼在一起作为输入，答案（output）作为输出，计算 loss 的时候将 instruction + input 屏蔽掉，只计算 output 部分的 loss，在 Alpaca-LoRA 的 `finetune.py` 中是这样实现的：
+```python
+def generate_and_tokenize_prompt(data_point):
+    full_prompt = prompter.generate_prompt(
+        data_point["instruction"],
+        data_point["input"],
+        data_point["output"],
+    )
+    tokenized_full_prompt = tokenize(full_prompt)
+    if not train_on_inputs:
+        user_prompt = prompter.generate_prompt(
+            data_point["instruction"], data_point["input"]
+        )
+        tokenized_user_prompt = tokenize(
+            user_prompt, add_eos_token=add_eos_token
+        )
+        user_prompt_len = len(tokenized_user_prompt["input_ids"])
+
+        if add_eos_token:
+            user_prompt_len -= 1
+
+        # 在 label 中屏蔽掉 prompt 部分
+        tokenized_full_prompt["labels"] = [-100] * user_prompt_len + \
+                                          tokenized_full_prompt["labels"][user_prompt_len:]
+    return tokenized_full_prompt
+```
+
+
+上面所述是对于单轮对话而言，那么扩展到多轮对话的场景下，就比较直观地可以引入第一种方法：将多轮对话的数据重新组织成多次的一问一答的形式，ChatGLM-6B 的微调教程中采用的是这种组织方式。对于一个形如 $Q_1 \rightarrow A_1; Q_2 \rightarrow A_2; Q3 \rightarrow A3$ 的对话，这种构造方式会将一个 session 拆解成 `num_turn` 条训练样本，`num_turn` 就是对话的轮数：
+$$
+    \left[ empty \right] \; Q_1 \rightarrow A_1 \notag \\
+    \left[ Q_1 \rightarrow A_1 \right] \; Q_2 \rightarrow A_2 \notag \\
+    \left[ Q_1 \rightarrow A_1; Q_2 \rightarrow A_2 \right] \; Q_3 \rightarrow A_3
+$$
+
+这样的组织形式有一定的问题存在：训练样本中用 `<pad>` token 填充的位置太多，对训练数据的利用效率比较低；训练数据的数据量会膨胀，训练数据中总样本数会膨胀到 `(session 数 * 平均对话轮数)` 的大小；多轮对话中后续几条样本有重复的上文，也会影响到效率和效果。
+
+一种改进的方法是每次将一个 session 构造为一个样本，MOSS 采用的是这种组织方式。对于一个形如 $Q_1 \rightarrow A_1; Q_2 \rightarrow A_2; Q3 \rightarrow A3$ 的对话，只计算 $ A_1, A_2, A3$ 这部分的 loss，可以参考前文已引过的 `finetune_moss.py` 的代码部分，对每条样本，维护 `no_loss_spans` 变量来记录 `input_ids` 中哪些部分不参与 loss 计算：
+```python
+input_ids = copy.deepcopy(instruction_ids)
+no_loss_spans = [(0, len(instruction_ids))]
+
+for i in range(num_turns):
+    cur_turn_ids = []
+    cur_no_loss_spans = []
+    cur_turn = chat[f'turn_{i+1}']
+    for key, value in cur_turn.items():
+
+        cur_ids = self.tokenizer.encode(value)
+
+        # 不计算 api response 部分的 loss
+        if key == 'Tool Responses':
+            # The format tokens (<|Results|>:...<eor>\n) should have losses. 
+            cur_no_loss_spans.append((len(input_ids + cur_turn_ids) + 5, len(input_ids + cur_turn_ids + cur_ids) - 2))    
+
+        assert isinstance(cur_ids, list) and len(cur_ids) > 0
+
+        cur_turn_ids.extend(cur_ids)
+
+    if len(input_ids + cur_turn_ids) > 2048:
+        break
+
+    input_ids.extend(cur_turn_ids)
+    no_loss_spans.extend(cur_no_loss_spans)
+```
+
+另外，采用这种方法对模型有一定的要求：采用 causal attention，单个 token 只能看到前文的信息；位置编码只有 token 次序的含义，没有包含或指代特定的信息，例如 ChatGLM1-6B 基于 GLM 模型，位置编码还需要含有生成 span 的位置等信息，无法按 token 次序推广，所以无法采用这种数据组织方式，后续的 ChatGLM2-6B 改进了这一点，位置编码退化为只反映 token 次序的形式，稍加修改也可以使用这种数据组织方式进行微调（[一个基于 ChatGLM2-6B 在 session 级数据上做微调的项目仓库](https://github.com/SpongebBob/Finetune-ChatGLM2-6B)）。
+
+
 
 
 ## Takeaways
