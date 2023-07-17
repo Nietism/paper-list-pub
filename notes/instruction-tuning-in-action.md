@@ -199,10 +199,11 @@ def generate_and_tokenize_prompt(data_point):
 
 
 上面所述是对于单轮对话而言，那么扩展到多轮对话的场景下，就比较直观地可以引入第一种方法：将多轮对话的数据重新组织成多次的一问一答的形式，ChatGLM-6B 的微调教程中采用的是这种组织方式。对于一个形如 $Q_1 \rightarrow A_1; Q_2 \rightarrow A_2; Q3 \rightarrow A3$ 的对话，这种构造方式会将一个 session 拆解成 `num_turn` 条训练样本，`num_turn` 就是对话的轮数：
+
 $$
-    \left[ empty \right] \; Q_1 \rightarrow A_1 \notag \\
-    \left[ Q_1 \rightarrow A_1 \right] \; Q_2 \rightarrow A_2 \notag \\
-    \left[ Q_1 \rightarrow A_1; Q_2 \rightarrow A_2 \right] \; Q_3 \rightarrow A_3 \notag
+    \left[ empty \right]  Q_1 \rightarrow A_1 \notag \\
+    \left[ Q_1 \rightarrow A_1 \right]  Q_2 \rightarrow A_2 \notag \\
+    \left[ Q_1 \rightarrow A_1; Q_2 \rightarrow A_2 \right]  Q_3 \rightarrow A_3 \notag
 $$
 
 这样的组织形式有一定的问题存在：训练样本中用 `<pad>` token 填充的位置太多，对训练数据的利用效率比较低；训练数据的数据量会膨胀，训练数据中总样本数会膨胀到 `(session 数 * 平均对话轮数)` 的大小；多轮对话中后续几条样本有重复的上文，也会影响到效率和效果。
