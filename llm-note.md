@@ -236,7 +236,7 @@
 
     $$
         W = W + \Delta W, W \in \mathbb{R}^{d \times d} \notag \\
-        \Delta W = A B, A \in \mathbb{R}^{d \times r}, B \in \mathbb{R}^{r \times d} \notag \\
+        \Delta W = A B, A \in \mathbb{R}^{d \times r}, B \in \mathbb{R}^{r \times d} \notag
     $$
 
 + **Towards a Unified View of Parameter-Efficient Transfer Learning.**
