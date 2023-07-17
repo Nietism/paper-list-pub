@@ -202,7 +202,7 @@ def generate_and_tokenize_prompt(data_point):
 $$
     \left[ empty \right] \; Q_1 \rightarrow A_1 \notag \\
     \left[ Q_1 \rightarrow A_1 \right] \; Q_2 \rightarrow A_2 \notag \\
-    \left[ Q_1 \rightarrow A_1; Q_2 \rightarrow A_2 \right] \; Q_3 \rightarrow A_3
+    \left[ Q_1 \rightarrow A_1; Q_2 \rightarrow A_2 \right] \; Q_3 \rightarrow A_3 \notag
 $$
 
 这样的组织形式有一定的问题存在：训练样本中用 `<pad>` token 填充的位置太多，对训练数据的利用效率比较低；训练数据的数据量会膨胀，训练数据中总样本数会膨胀到 `(session 数 * 平均对话轮数)` 的大小；多轮对话中后续几条样本有重复的上文，也会影响到效率和效果。
