@@ -195,7 +195,7 @@
 
 + **A Joint Neural Model for Information Extraction with Global Features.**
 
-    *Ying Lin, Heng Ji, Fei Huang, Lingfei Wu.* **ACL, 2020.** [[pdf](./documents/2020.oneie.pdf)] [[acl](https://aclanthology.org/2020.acl-main.713/)] [[official website](http://blender.cs.illinois.edu/software/oneie/)]
+    *Ying Lin, Heng Ji, Fei Huang, Lingfei Wu.* **ACL, 2020.** [[pdf](./documents/2020.oneie.pdf)] [[acl](https://aclanthology.org/2020.acl-main.713/)] [[homepage](http://blender.cs.illinois.edu/software/oneie/)]
 
     OneIE.
 
@@ -328,15 +328,15 @@
 
 + **Retrieval-based Language Models and Applications.**
 
-    *Akari Asai, Sewon Min, Zexuan Zhong, Danqi Chen.* **ACL 2023 Tutorial.** [[official website](https://acl2023-retrieval-lm.github.io/)]
+    *Akari Asai, Sewon Min, Zexuan Zhong, Danqi Chen.* **ACL 2023 Tutorial.** [[homepage](https://acl2023-retrieval-lm.github.io/)]
 
 + **Introduction to Large Language Models.**
 
-    *Qi Zhang, Tao Gui, Rui Zheng, Xuanjing Huang.* **online resource, 2023.** [[official website](https://intro-llm.github.io/)] [[github](https://github.com/intro-llm/intro-llm.github.io)]
+    *Qi Zhang, Tao Gui, Rui Zheng, Xuanjing Huang.* **online resource, 2023.** [[homepage](https://intro-llm.github.io/)] [[github](https://github.com/intro-llm/intro-llm.github.io)]
 
 + **Introduction to Natural Language Processing.**
 
-    *Qi Zhang, Tao Gui, Xuanjing Huang.* **online resource, 2023.** [[pdf](./documents/Introduction_To_NLP.pdf)] [[official website](https://intro-nlp.github.io/)] [[github](https://github.com/intro-nlp/intro-nlp.github.io)] 
+    *Qi Zhang, Tao Gui, Xuanjing Huang.* **online resource, 2023.** [[pdf](./documents/Introduction_To_NLP.pdf)] [[homepage](https://intro-nlp.github.io/)] [[github](https://github.com/intro-nlp/intro-nlp.github.io)] 
 
 + **Natural Language Processing with Transformers.**
 
