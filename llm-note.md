@@ -146,6 +146,12 @@
 
     四种尺寸：7B, 13B, 33B, 65B. 训练数据全部来自公开数据集。
 
++ **LLaMA 2.**
+
+    *Hugo Touvron et al.* **2023.** [[pdf](./documents/2023.LLaMA-2.pdf)] [[homepage](https://ai.meta.com/llama/)] [[project](https://github.com/facebookresearch/llama)]
+
+    开源了 7B, 13B, 70B 三个尺寸的 base model 和 chat model，上下文长度扩大到 4096，增加了预训练数据，SFT 数据超过 10 万条，人类偏好对齐数据超过 100 万条。
+
 + **PaLM 2 Technical Report.**
 
     *Rohan Anil, Andrew M. Dai, Orhan Firat, Melvin Johnson and many authors.* **arxiv, 2023.** [[pdf](./documents/2023.PaLM%202%20Technical%20Report.pdf)] [[arxiv](https://arxiv.org/abs/2305.10403)]
@@ -272,6 +278,10 @@
 
      第三方发布在 huggingface 上的版本：https://huggingface.co/decapoda-research
 
++ **LLaMA 2.** [[homepage](https://ai.meta.com/llama/)] [[github](https://github.com/facebookresearch/llama)] [[huggingface](https://huggingface.co/meta-llama)]
+
+    开源了 7B, 13B, 70B 三个尺寸的 base model 和 chat model，上下文长度扩大到 4096.
+
 + **ChatGLM-6B.** [[blog](https://chatglm.cn/blog)] [[github](https://github.com/THUDM/ChatGLM-6B)]
 
     清华/智谱开源的中/英双语模型，及微调训练工具库。
@@ -288,18 +298,7 @@
 
 + **MOSS.** [[github](https://github.com/OpenLMLab/MOSS)]
 
-    在 CodeGen 模型的基础上进行中文预训练得到了基座模型，发布的 moss-moon-003 系列模型参数量在 16B 左右。插件增强方面的实现参考了 [Toolformer](https://arxiv.org/abs/2302.04761) 的思路，将api调用显式地嵌入在自然语言中，比如：
-    ```json
-    "chat": {
-        "turn_1": {
-            "Human": "<|Human|>: 自然语言处理的应用有哪些？<eoh>\n",
-            "Inner Thoughts": "<|Inner Thoughts|>: 为了回答这个问题，需要列举一些自然语言处理的应用，以及它们在不同的领域中的应用<eot>\n",
-            "Commands": "<|Commands|>: Search(\"自然语言处理应用\")<eoc>\n",
-            "Tool Responses": "<|Results|>:\nSearch(\"自然语言处理应用\") =>\n<|1|>: '电子邮件筛选器是NLP 最基础且最初的在线应用之一。最开始是垃圾邮件筛选器，可以发现指示垃圾邮件信息的某些字词或短语。但是筛选功能已经升级，就像 ...'\n<|2|>: '网络上有海量的文本信息，想要处理这些非结构化的数据就需要利用NLP 技术。本文将介绍NLP 的基本概念，2大任务，4个典型应用，5个难点和6个实践步骤。'\n<|3|>: '自然语言处理(NLP) 是一种机器学习技术，使计算机能够解读、处理和理解人类语言。如今，组织具有来自各种通信渠道（例如电子邮件、短信、社交媒体新闻源、视频、音频） ...'\n<eor>\n",
-            "MOSS": "<|MOSS|>: 自然语言处理(NLP)的应用非常广泛，包括但不限于电子邮件筛选器、文本分类、情感分析、机器翻译、语音识别、问答系统等。NLP在各个领域中都有应用，比如在医疗领域中可以用于诊断和治疗，金融领域中可以用于自动化客户服务和欺诈检测等。如果您想了解更多关于NLP应用的信息，可以查看一些相关文章，例如 <|1|> <|2|> <|3|>。<eom>\n"
-        }
-    }
-    ```
+    在 CodeGen 模型的基础上进行中文预训练得到了基座模型，发布的 moss-moon-003 系列模型参数量在 16B 左右。插件增强方面的实现参考了 [Toolformer](https://arxiv.org/abs/2302.04761) 的思路，将api调用显式地嵌入在自然语言中。
 
 + **CPM-Bee.** [[github](https://github.com/OpenBMB/CPM-Bee)] [[huggingface](https://huggingface.co/openbmb/cpm-bee-10b)]
 
@@ -539,6 +538,7 @@ MOSS 的对话数据的结构比较清晰：
     | :-----| :----- | :----- | :-----| :----- | :----- | :----- |
     | "What is Bradley Cooper's phone number?" | "Do you mean the American actor and singer Bradley Cooper?" | "I'm afraid I don't know the answer to that." | false | true | 0 | 1 |
 
++ **MOSS-RLHF.** [[pdf](./documents/2023.MOSS-RLHF-01-PPO.pdf)] [[homepage](https://openlmlab.github.io/MOSS-RLHF/)] [[github](https://github.com/OpenLMLab/MOSS-RLHF)] [[arxiv](https://arxiv.org/abs/2307.04964)]
 
 
 # 在一些在具体领域的应用 🚋
@@ -618,7 +618,7 @@ xx% 水平”。
 
 + **C-Eval.**
 
-    *Language Intelligence and Technology Group, SJTU.* [[github](https://github.com/SJTU-LIT/ceval)] [[official website](https://cevalbenchmark.com/)] 
+    *Language Intelligence and Technology Group, SJTU.* [[github](https://github.com/SJTU-LIT/ceval)] [[homepage](https://cevalbenchmark.com/)] 
 
     C-Eval 是全面的中文基础模型评估套件，涵盖了 52 个不同学科的 13948 个多项选择题，分为四个难度级别。
 
