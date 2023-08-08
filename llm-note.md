@@ -366,7 +366,7 @@
 
 ## 指令微调（instruction tuning）
 
-[[link](./notes/instruction-tuning-in-action.md)]
+[[link](./notes/SFT-Cookbook.md)]
 
 指令微调的数据集通常用两种方法产出：
 
