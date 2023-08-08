@@ -118,6 +118,10 @@
 
     *Yujia Qin, Shengding Hu, Yankai Lin, Weize Chen, Ning Ding, Ganqu Cui, Zheni Zeng, Yufei Huang, Chaojun Xiao, Chi Han, Yi Ren Fung, Yusheng Su, Huadong Wang, Cheng Qian, Runchu Tian, Kunlun Zhu, Shihao Liang, Xingyu Shen, Bokai Xu, Zhen Zhang, Yining Ye, Bowen Li, Ziwei Tang, Jing Yi, Yuzhang Zhu, Zhenning Dai, Lan Yan, Xin Cong, Yaxi Lu, Weilin Zhao, Yuxiang Huang, Junxi Yan, Xu Han, Xian Sun, Dahai Li, Jason Phang, Cheng Yang, Tongshuang Wu, Heng Ji, Zhiyuan Liu, Maosong Sun.* **arxiv, 2023.** [[pdf](./documents/2023.Tool%20Learning%20with%20Foundation%20Models.pdf)] [[arxiv](https://arxiv.org/abs/2304.08354)] [[project](https://github.com/OpenBMB/BMTools)]
 
++ **Skeleton-of-Thought: Large Language Models Can Do Parallel Decoding.**
+
+    *Xuefei Ning, Zinan Lin, Zixuan Zhou, Huazhong Yang, Yu Wang.* **arxiv, 2023.** [[pdf](./documents/2023.Skeleton-of-Thought.pdf)] [[arxiv](https://arxiv.org/abs/2307.15337)]
+
 + **GLM: General Language Model Pretraining with Autoregressive Blank Infilling.**
 
     *Zhengxiao Du, Yujie Qian, Xiao Liu, Ming Ding, Jiezhong Qiu, Zhilin Yang, Jie Tang.* **ACL, 2022.** [[pdf](./documents/2022.GLM.pdf)] [[acl](https://aclanthology.org/2022.acl-long.26/)] [[arxiv](https://arxiv.org/abs/2103.10360)] [[project](https://github.com/THUDM/GLM)]
