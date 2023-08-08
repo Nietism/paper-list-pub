@@ -94,9 +94,20 @@
 
     A series of LLMs (7B, 13B, 33B, 65B) from Meta AI.
 
++ **LLaMA 2.**
+
+    *Hugo Touvron et al.* **2023.** [[pdf](./documents/2023.LLaMA-2.pdf)] [[homepage](https://ai.meta.com/llama/)] [[project](https://github.com/facebookresearch/llama)]
+
+
 + **PaLM 2 Technical Report.**
 
     *Rohan Anil, Andrew M. Dai, Orhan Firat, Melvin Johnson and many authors.* **arxiv, 2023.** [[pdf](./documents/2023.PaLM%202%20Technical%20Report.pdf)] [[arxiv](https://arxiv.org/abs/2305.10403)]
+
++ **RWKV: Reinventing RNNs for the Transformer Era.**
+
+    *Bo Peng, Eric Alcaide, Quentin Anthony, Alon Albalak, Samuel Arcadinho, Huanqi Cao, Xin Cheng, Michael Chung, Matteo Grella, Kranthi Kiran GV, Xuzheng He, Haowen Hou, Przemyslaw Kazienko, Jan Kocon, Jiaming Kong, Bartlomiej Koptyra, Hayden Lau, Krishna Sri Ipsit Mantri, Ferdinand Mom, Atsushi Saito, Xiangru Tang, Bolun Wang, Johan S. Wind, Stansilaw Wozniak, Ruichong Zhang, Zhenyuan Zhang, Qihang Zhao, Peng Zhou, Jian Zhu, Rui-Jie Zhu.* **arxiv, 2023.** [[pdf](./documents/2023.RWKV-v1.pdf)] [[arxiv](https://arxiv.org/abs/2305.13048)] [[project](https://github.com/BlinkDL/RWKV-LM)]
+
+    RWKV is an RNN with transformer-level LLM performance. It can be directly trained like a GPT (parallelizable). 
 
 + **Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond.**
 
@@ -110,7 +121,7 @@
     <img src="./notes/pics/llm-decision-flow.png" alt="alt text" title="Optional title" width="90%" />
 
 
-### Parameter-Efficient Fine-Tuning 🛩
+### Parameter-Efficient Fine-Tuning / Other Efficient Tuning or Inferring Methods 🛩
 
 + **LoRA: Low-Rank Adaptation of Large Language Models.**
 
@@ -128,6 +139,10 @@
     *Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-Kirkpatrick, Graham Neubig.* **ICLR, 2022.** [[pdf](./documents/2021.Towards%20a%20Unified%20View%20of%20Parameter-Efficient%20Transfer%20Learning.pdf)] [[arxiv](https://arxiv.org/abs/2110.04366)] [[project](https://github.com/jxhe/unify-parameter-efficient-tuning)]
 
     It provides a unified view of three representative PEFT methods (adapter, prefix tuning and LoRA). Authors also proposed three variants: Parallel Adapter, Multi-head Parallel Adapter and Scaled Parallel Adapter and conducted further experiments and discussions. Insightful.
+
++ **QLoRA: Efficient Finetuning of Quantized LLMs.**
+
+    *Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, Luke Zettlemoyer.* **arxiv, 2023.** [[pdf](./documents/2023.QLoRA.pdf)] [[arxiv](https://arxiv.org/abs/2305.14314)] [[project](https://github.com/artidoro/qlora)]
 
 
 ### Model Architecture / Training and Tuning / Decoding 🚋
